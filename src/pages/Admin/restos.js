@@ -202,7 +202,7 @@ const Dashboard = () => {
       {Cards.length > 0 ? (
             Cards.map((restaurant) => (
               <div onClick={() => handleView(restaurant.id)} key={restaurant.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * restaurant.id} style={{ padding: '' }}>
-                <div className="member col-xl-12">
+                <div className="member col-xl-12" style={{padding:'0.3cm' }}>
                 {restaurant.image!==null ? (
                   <img src={restaurant.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9CM' }} />
                 ) : (

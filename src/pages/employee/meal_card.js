@@ -140,7 +140,7 @@ const Dashboard = () => {
                           <div className="row gy-4">
                             {Customer.map((Employee) => (
                               <div key={Employee.id} className="col-xl-12 col-md-12" data-aos="fade-up" data-aos-delay={100 * Employee.id} style={{ padding: '' }}>
-                                <div className="member col-xl-12">
+                                <div className="member col-xl-12" style={{padding:'0.3cm' }}>
                                   {/* <img src='/assets/img/images (3).jpeg' className="img-fluid" alt="" style={{ height: 'auto', padding: '0px', width: '100%', borderRadius: '7px' }} /> */}
                                   {Employee.image && Employee.image !== 'null' ? (
                                             <img src={Employee.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'11cm' }} />

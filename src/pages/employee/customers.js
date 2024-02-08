@@ -334,7 +334,7 @@ const Dashboard = () => {
                               CustomersAdmin.length > 0 ? (
                                 CustomersAdmin.map((Customer) => (
                                   <div  onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ padding: '' }}>
-                                    <div className="member col-xl-12">
+                                    <div className="member col-xl-12" style={{padding:'0.3cm'}}>
                                              {Customer.image && Customer.image !== 'null' ? (
                                             <img src={Customer.image} className="img-fluid" alt="" style={{ borderRadius: '', marginBottom: '0.5cm',width:'11cm' }} />
 
@@ -365,7 +365,7 @@ const Dashboard = () => {
                         </div>
                         <div className="col-lg-6 order-1 order-lg-2" style={{ marginTop: '1cm', fontFamily: 'monospace', color: 'white' }}>
                           {/* <img src="assets/img/breakfast from bed-pana.svg" className="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100" /> */}
-                          <div className="row member" style={{ marginTop: '2cm' }}>
+                          <div className="row member" style={{ marginTop: '2cm'}}>
                             <div className="col-xl-6 col-md-6 d-flex">
                               <img src='/assets/img/card.png' className="img-fluid" alt="" />
                             </div>
@@ -451,7 +451,7 @@ const Dashboard = () => {
                             {Cards.length > 0 ? (
                               Cards.map((category, index) => (
                                 <div key={index} className="col-xl-6 col-md-6" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
-                                  <div className="member">
+                                  <div className="member" style={{padding:'0.3cm' }}>
                                     <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="" style={{ height: 'auto', width: '100%', borderRadius: '7px' }} />
                                     <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase' }}>{category.name}</h4>
                                     <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p>
