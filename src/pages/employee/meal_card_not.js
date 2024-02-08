@@ -211,7 +211,6 @@ const Dashboard = () => {
 
                           <div className="col-xl-12 col-md-12" data-aos="fade-up" data-aos-delay="200" style={{ backgroundColor: 'white', paddingTop: '0.5cm', padding: '0.3cm', borderRadius: '20px' }} >
                         {Cards.cardUser && (<div className="member" style={{padding:'0.3cm' }}>
-                              <br />
                               {Cards.cardUser.image && Cards.cardUser.image !== 'null' ? (
                                             <img src={Cards.cardUser.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'11cm' }} />
 
