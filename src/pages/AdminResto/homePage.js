@@ -662,7 +662,7 @@ const Dashboard = () => {
                             EmployeesAdmin.map((Employee) => (
                               <div onClick={() => handleView(Employee.id)} key={Employee.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Employee.id} style={{ padding: '' }}>
 
-                                <div className="member col-xl-12">
+                                <div className="member col-xl-12"> <br/>
 
                                 {Employee.image && Employee.image!=='null'? (
                                   <img src={Employee.image} className="img-fluid" alt="" style={{ borderRadius: '100%', height: '3.5cm', width: '3.5cm' }} />

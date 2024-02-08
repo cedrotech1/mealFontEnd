@@ -138,7 +138,7 @@ const LandingPage = () => {
 
                     <p style={{ textAlign: 'justify' }}>
 
-                      <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '0.4cm', marginTop: '20px', borderRadius: '6px' }}>
+                      <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '0.4cm', marginTop: '27px', borderRadius: '6px' }}>
                         <BiMap className="" style={{ color: 'black' }} />&nbsp;&nbsp;{card.address} <br />
                         <BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} />&nbsp;&nbsp;obina@gmail.com <br />
                         <BiPhone />&nbsp;&nbsp;07854635367
