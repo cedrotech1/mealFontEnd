@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Offcanvas, Button, Nav } from 'react-bootstrap';
 import '../css/main2.css';
-
+import { Link, useNavigate } from 'react-router-dom'; 
 const LandingPage = () => {
   const [show, setShow] = useState(false);
 
@@ -33,11 +33,17 @@ const LandingPage = () => {
               </p>
             </div>
             <center>
-              <Nav className="flex-column">
-                <Nav.Link style={sidebarStyles}>Home</Nav.Link>
-                <Nav.Link style={sidebarStyles}>contact</Nav.Link>
-                <Nav.Link style={sidebarStyles}>About</Nav.Link>
-              </Nav>
+            <Nav className="flex-column">
+          <Link to="/" style={sidebarStyles}>
+            Home
+          </Link>
+          <Link to="/contact" style={sidebarStyles}>
+            Contact
+          </Link>
+          <Link to="/about" style={sidebarStyles}>
+            About
+          </Link>
+        </Nav>
               <div className="d-flex justify-content-center">
                 <a href="./login" className="btn-get-started" style={sidebarStyles}>
                   Login
