@@ -665,10 +665,10 @@ const Dashboard = () => {
                                 <div className="member col-xl-12">
 
                                 {Employee.image && Employee.image!=='null'? (
-              <img src={Employee.image} className="img-fluid" alt="" style={{ borderRadius: '100%', height: '3.5cm', width: '3.5cm' }} />
-            ) : (
-              <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '100%', height: '3.5cm', width: '3.5cm'  }} />
-            )}
+                                  <img src={Employee.image} className="img-fluid" alt="" style={{ borderRadius: '100%', height: '3.5cm', width: '3.5cm' }} />
+                                ) : (
+                                  <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '100%', height: '3.5cm', width: '3.5cm'  }} />
+                                )}
                                   {/* {Employee.image !==null? (
                                   <img src={Employee.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }} />
                               

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Offcanvas, Button } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi';
@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Menu from "../../components/MenuDeskTop";
 import Menu2 from "../../components/MenuMobile";
+import '../../css/main2.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -331,14 +332,11 @@ const Dashboard = () => {
                           <div className="row gy-4">
                             {
                               CustomersAdmin.length > 0 ? (
-
-
                                 CustomersAdmin.map((Customer) => (
                                   <div  onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ padding: '' }}>
                                     <div className="member col-xl-12">
-                                      {/* <img src='assets/img/images (3).jpeg' className="img-fluid" alt="" style={{ height: 'auto', padding: '0px', width: '100%', borderRadius: '7px' }} /> */}
-                                      {Customer.image && Customer.image !== 'null' ? (
-                                            <img src={Customer.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'11cm' }} />
+                                             {Customer.image && Customer.image !== 'null' ? (
+                                            <img src={Customer.image} className="img-fluid" alt="" style={{ borderRadius: '', marginBottom: '0.5cm',width:'11cm' }} />
 
                                         ) : (
                                             <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }}  />
@@ -358,7 +356,7 @@ const Dashboard = () => {
                                 ))
                               ) : (
                                 <div className="col-12 text-center">
-                                  <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
+                                  {/* <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4> */}
                                 </div>
                               )}
 
@@ -469,7 +467,7 @@ const Dashboard = () => {
                               ))
                             ) : (
                               <div className="col-12 text-center">
-                                <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
+                                {/* <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4> */}
                               </div>
                             )}
 
