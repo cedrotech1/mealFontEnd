@@ -56,7 +56,7 @@ const LandingPage = () => {
         <div className="container" data-aos="fade-up">
           {RestaurantCategories.map((category, index) => (
             <div key={index} data-aos="fade-up" data-aos-delay={100 * index}>
-              <div className="row member" style={{padding:"0.7cm"}}>
+              <div className="row member" style={{padding:"0.3cm"}}>
                 <div className="col-xl-6 col-md-6 d-flex">
                 {category.image!==null && category.image!=='null' ? (
                                         <img src={category.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm'  }}  />                                  

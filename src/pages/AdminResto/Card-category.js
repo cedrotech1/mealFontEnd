@@ -415,7 +415,7 @@ const Dashboard = () => {
       {Cards.length > 0 ? (
         Cards.map((category, index) => (
           <div onClick={() => handleView(category.id)} key={index} className="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
-            <div className="member">
+            <div className="member" style={{padding:"0.4cm"}}>
             {category.image!==null && category.image!=='null' ? (
                                         <img src={category.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm'  }}  />                                  
                                         ) : (

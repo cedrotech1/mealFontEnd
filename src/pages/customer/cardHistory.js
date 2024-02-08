@@ -111,7 +111,7 @@ const LandingPage = () => {
             ) : (
               Cards.map((card) => (
                 <div onClick={() => handleView(card.id)} key={card.id} className="col-xl-4 col-md-12 " data-aos="fade-up" data-aos-delay={100 * card.id} style={{ padding: '' }}>
-                  <div className="member col-xl-12" style={{padding:"0.7cm"}}>
+                  <div className="member col-xl-12" style={{padding:"0.4cm"}}>
                     <img src='/assets/img/card7.png' className="img-fluid" alt="" style={{ height: 'auto', padding: '0px', width: '100%', borderRadius: '7px' }} />
                     {/* <h4 style={{ textAlign: 'justify' }}>{restaurant.name}</h4> */}
                     {card.cardUser && (

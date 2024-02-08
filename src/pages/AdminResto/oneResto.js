@@ -33,7 +33,7 @@ const UserProfile = () => {
         <div className="container" data-aos="fade-up">
           <div className="row">
             <div className="" data-aos="fade-up" data-aos-delay="100">
-              <div className="row memberx">
+              <div className="row memberx" style={{padding:"0.4cm"}}>
                 <div className=" col-xl-6 col-md-6 d-flex">
                   <img src="assets/img/Writer's block-rafiki.svg" className="img-fluid" alt="" style={{ height: 'auto' }} />
 
