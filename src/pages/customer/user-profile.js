@@ -12,7 +12,23 @@ const LandingPage = () => {
     <>
       <Menu />
       <div style={{marginTop:'1cm'}}> 
-      <Profile/>
+      <div className='row'>
+      <div className='col-xl-2 col-md-2'>
+        
+
+        </div>
+        <div className='col-xl-8 col-md-2'>
+         <Profile/>
+
+        </div>
+        <div className='col-xl-2 col-md-2'>
+        
+
+        </div>
+
+
+      </div>
+     
       </div>
        
       <Footer />
