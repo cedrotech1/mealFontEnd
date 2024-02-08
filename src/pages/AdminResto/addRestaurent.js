@@ -310,7 +310,7 @@ const Dashboard = () => {
         Restaurent.map((restaurant) => (
           <div onClick={() => handleView(restaurant.id)} key={restaurant.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * restaurant.id} style={{padding:"0.4cm"}}>
           <Link to="/resto_view">
-            <div className="member col-xl-12" style={{backgroundColor:'red'}}>
+            <div className="memberx col-xl-12" style={{backgroundColor:'white',padding:'0.5cm'}}>
              
             {restaurant.image!==null ? (
                                         <img src={restaurant.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }}  />                                  
