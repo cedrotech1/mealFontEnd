@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../../css/main2.css';
+// import '../../css/main2.css';
 
 import Menu from '../../components/customerM';
 import Footer from '../../components/footer';
@@ -88,7 +88,7 @@ const LandingPage = () => {
 
               <p style={{ textAlign: 'justify' }}>
                 {restaurant.description}
-                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '0.4cm', marginTop: '20px', borderRadius: '6px' }}>
+                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '1cm', marginTop: '20px', borderRadius: '6px' }}>
                   <BiMap className="" style={{ color: 'black' }} />&nbsp;&nbsp;{restaurant.address} <br />
                   <BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} />&nbsp;&nbsp;{restaurant.email} <br />
                   <BiPhone />&nbsp;&nbsp;{restaurant.phone}
