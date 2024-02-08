@@ -78,17 +78,17 @@ const LandingPage = () => {
       ) : (
         restaurants.map((restaurant) => (
           <div onClick={() => handleView(restaurant.id)} key={restaurant.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * restaurant.id} style={{ padding: '' }}>
-            <div className="team member col-xl-12">
+            <div className="team member col-xl-12" style={{padding:"0.7cm"}}>
             {restaurant.image!==null ? (
-              <img src={restaurant.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }} />
+              <img src={restaurant.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9CM' }} />
             ) : (
-              <img src='/assets/img/rest.jpg' className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width:'9cm' }}/>
+              <img src='/assets/img/rest.jpg' className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '100%' }}/>
             )}
-              <h4 style={{ textAlign: 'center' }}>{restaurant.name}</h4>
+              <h4 style={{ textAlign: 'justify' }}>{restaurant.name}</h4>
 
-              <p style={{ textAlign: 'center' }}>
+              <p style={{ textAlign: 'justify' }}>
                 {restaurant.description}
-                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: 'white', padding: '1cm',  borderRadius: '6px' }}>
+                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '1cm', marginTop: '20px', borderRadius: '6px' }}>
                   <BiMap className="" style={{ color: 'black' }} />&nbsp;&nbsp;{restaurant.address} <br />
                   <BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} />&nbsp;&nbsp;{restaurant.email} <br />
                   <BiPhone />&nbsp;&nbsp;{restaurant.phone}

@@ -121,7 +121,7 @@ const LandingPage = () => {
       ) : (
         Cards.map((card) => (
           <div onClick={() => handleView(card.id)} key={card.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * card.id} style={{ padding: '' }}>
-            <div className="member col-xl-12">
+            <div className="member col-xl-12" style={{padding:"0.7cm"}}>
               <img src='/assets/img/card7.png' className="img-fluid" alt="" style={{ height: 'auto', padding: '0px', width: '100%', borderRadius: '7px' }} />
               {/* <h4 style={{ textAlign: 'justify' }}>{restaurant.name}</h4> */}
               {card.cardUser && (
@@ -136,7 +136,7 @@ const LandingPage = () => {
 
               <p style={{ textAlign: 'justify' }}>
               
-                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '0.4cm', marginTop: '25px', borderRadius: '6px' }}>
+                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '0.4cm', marginTop: '20px', borderRadius: '6px' }}>
                   <BiMap className="" style={{ color: 'black' }} />&nbsp;&nbsp;{card.address} <br />
                   <BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} />&nbsp;&nbsp;obina@gmail.com <br />
                   <BiPhone />&nbsp;&nbsp;07854635367
