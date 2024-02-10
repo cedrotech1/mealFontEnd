@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi';
 import { Modal, Button } from 'react-bootstrap';
 import { FaInfoCircle } from 'react-icons/fa';
+import LoadingSpinner from './loading'; 
 
 const LandingPage = () => {
     const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const LandingPage = () => {
         gender: '',
         address: '',
     });
+    const [loading, setLoading] = useState(true);
 
     const [formData1, setFormData1] = useState({
         oldPassword: '',
@@ -53,6 +55,7 @@ const LandingPage = () => {
     };
 
     useEffect(() => {
+        setLoading(true); 
         const user = localStorage.getItem('user');
         if (user) {
             const parsedUser = JSON.parse(user);
@@ -66,6 +69,7 @@ const LandingPage = () => {
                 address: parsedUser.address || '',
                 image: parsedUser.image || '',
             });
+            setLoading(false); 
             setID(parsedUser.id);
             setSelectedUser(parsedUser);
             setImage(parsedUser.image)
@@ -102,6 +106,7 @@ const LandingPage = () => {
         e.preventDefault();
 
         try {
+            setLoading(true); 
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/update/${ID}`, {
                 method: 'PUT',
                 headers: {
@@ -134,6 +139,7 @@ const LandingPage = () => {
         e.preventDefault();
 
         try {
+            setLoading(true); 
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/changePassword`, {
                 method: 'PUT',
                 headers: {
@@ -166,6 +172,8 @@ const LandingPage = () => {
 
 
         try {
+            setLoading(true); 
+            
             const formDataUpload = new FormData();
             formDataUpload.append('image', formDataImage.image);
 
@@ -292,9 +300,9 @@ const LandingPage = () => {
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-between">
-                                    <button type="submit" className="form-control" style={{ borderRadius: '10PX', backgroundColor: 'darkblue' }}>
-                                        Edit profile
-                                    </button>
+                                    <button type="submit" className="form-control" style={{ borderRadius: '10PX', backgroundColor: 'darkblue' }} disabled={loading}>
+              {loading ? <LoadingSpinner /> : ' Edit profile'}
+            </button>
                                 </div>
                                 <div className="row" style={{ backgroundColor: '' }}>
                                     <div className="col-xl-4 col-md-4" style={{ padding: '0.4cm' }}></div>
@@ -347,9 +355,9 @@ const LandingPage = () => {
                                 <input type="password" className="form-control" name="confirmPassword" id="confirmPassword" placeholder="*********" onChange={handleChange1} />
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="form-control">
-                                    Edit
-                                </button>
+                                <button type="submit" className="form-control" disabled={loading}>
+              {loading ? <LoadingSpinner /> : ' Edit '}
+            </button>
                             </div>
                         </div>
                     </form>
@@ -373,9 +381,9 @@ const LandingPage = () => {
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="form-control">
-                                    Edit
-                                </button>
+                                <button type="submit" className="form-control"disabled={loading}>
+              {loading ? <LoadingSpinner /> : ' apload'}
+            </button>
                             </div>
                         </div>
                     </form>

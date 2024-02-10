@@ -103,9 +103,9 @@ const LandingPage = () => {
       
           <center>
             {getMenu().map((menuItem, index) => (
-              <Link key={index} to={menuItem.to} className="nav-link">
-                {menuItem.icon} {menuItem.name}
-              </Link>
+          <Link key={index} to={menuItem.to} className="nav-link" style={{textTransform:'Capitalize',fontFamily:'monospace',fontStyle:'italic',textAlign:'center'}}>
+          {menuItem.icon} {menuItem.name}
+        </Link>
             ))}
             <div className="d-flex justify-content-center">
               <a href="/logout" className="btn-get-started" style={{ backgroundColor: '#b6b5b5', borderRadius: '6px', fontFamily: 'monospace', textDecoration: 'none', padding: '0.2cm', width: '4cm', marginTop: '1.5cm', color: 'black' }}>

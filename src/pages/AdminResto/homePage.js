@@ -641,16 +641,9 @@ const Dashboard = () => {
                                 ) : (
                                   <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '100%', height: '3.5cm', width: '3.5cm'  }} />
                                 )}
-                                  {/* {Employee.image !==null? (
-                                  <img src={Employee.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }} />
-                              
-                                  ) : (
-                                  <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm'  }}  />
-
-                                )} */}
-                                  {/* <img src='assets/img/images (3).jpeg' className="img-fluid" alt="" style={{ height: 'auto', padding: '0px', width: '100%', borderRadius: '7px' }} /> */}
+                                 
                                   <h4 style={{ textAlign: 'center' }}>{Employee.firstname} &nbsp;{Employee.lastname}</h4>
-                                  <p style={{ textAlign: 'justify', fontFamily: 'cursive', textAlign: 'center' }}>
+                                  <p style={{ textAlign: 'justify', fontFamily: '', textAlign: 'center' }}>
                                    status: &nbsp; {Employee.status}
                                   </p>
                                   <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: 'whitesmoke', padding: '0.4cm', marginTop: '20px', borderRadius: '6px' }}>

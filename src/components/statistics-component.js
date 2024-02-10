@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import LoadingSpinner from './loading'; // Import the LoadingSpinner component
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -42,7 +44,7 @@ const App = () => {
     }
   }, []);
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner/>;
   }
 
   if (!user) {

@@ -8,6 +8,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Menu from "../../components/MenuDeskTop";
 import Menu2 from "../../components/MenuMobile";
 import '../../css/main2.css';
+import LoadingSpinner from '../../components/loading'; 
+
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -330,10 +333,13 @@ const Dashboard = () => {
 
                           </div>
                           <div className="row gy-4">
+                          {loading ? <LoadingSpinner /> : <>
+                  
+                          
                             {
                               CustomersAdmin.length > 0 ? (
                                 CustomersAdmin.map((Customer) => (
-                                  <div  onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ marginTop: '-0.1cm' }}>
+                                  <div  onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ marginTop: '-0.1cm',marginBottom:'0.5cm' }}>
                                     <div className="member col-xl-12" style={{padding:'0.3cm'}}>
                                              {Customer.image && Customer.image !== 'null' ? (
                                             <img src={Customer.image} className="img-fluid" alt="" style={{ borderRadius: '', marginBottom: '0.5cm',width:'11cm' }} />
@@ -356,9 +362,11 @@ const Dashboard = () => {
                                 ))
                               ) : (
                                 <div className="col-12 text-center">
-                                  {/* <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4> */}
+                                  <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
                                 </div>
                               )}
+
+</>}
 
                           </div>
 
@@ -445,6 +453,9 @@ const Dashboard = () => {
 
                           </div>
                           <div className="row gy-4">
+                           
+                          {loading ? <LoadingSpinner /> : <>
+                  
                             {Cards.length > 0 ? (
                               Cards.map((category, index) => (
                                 <div key={index} className="col-xl-6 col-md-6" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
@@ -464,10 +475,10 @@ const Dashboard = () => {
                               ))
                             ) : (
                               <div className="col-12 text-center">
-                                {/* <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4> */}
+                                <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
                               </div>
                             )}
-
+</>}
                           </div>
 
                         </div>

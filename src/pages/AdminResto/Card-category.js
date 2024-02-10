@@ -402,12 +402,12 @@ const Dashboard = () => {
                                 ) : (
                                   <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '100%' }} />
                                 )}
-                                <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase', marginBottom: '0.5cm' }}>{category.name}</h4>
+                                <h4 style={{ textAlign: 'center', fontFamily: '', textTransform: 'uppercase', marginBottom: '0.5cm' }}>{category.name}</h4>
                                 {/* <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p> */}
-                                <p style={{ fontFamily: 'cursive', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
+                                <p style={{ fontFamily: '', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
                                   Price: {category.price} &nbsp;Rwf
                                 </p>
-                                <p style={{ fontFamily: 'cursive', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
+                                <p style={{ fontFamily: '', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
                                   <i> status: {category.status}</i>
                                 </p>
                                 <button onClick={() => handleView(category.id)} style={{ backgroundColor: 'white', border: '0px' }}>

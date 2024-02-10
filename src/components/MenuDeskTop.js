@@ -110,7 +110,7 @@ const LandingPage = () => {
           <center>
             <Nav className="flex-column">
               {getMenu().map((menuItem, index) => (
-                <Link key={index} to={menuItem.to} className="nav-link" style={{textTransform:'Capitalize',fontFamily:'inherit',fontStyle:'italic',textAlign:'center'}}>
+                <Link key={index} to={menuItem.to} className="nav-link" style={{textTransform:'Capitalize',fontFamily:'monospace',fontStyle:'italic',textAlign:'center'}}>
                   {menuItem.icon} {menuItem.name}
                 </Link>
               ))}

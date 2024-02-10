@@ -9,6 +9,8 @@ import { faEye, faEdit, faCheck, faTimes,faTrash } from '@fortawesome/free-solid
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, Link } from 'react-router-dom';
+import LoadingSpinner from '../../components/loading'; // Import the LoadingSpinner component
+
 
 
 import Menu from "../../components/MenuDeskTop";
@@ -305,7 +307,7 @@ const Dashboard = () => {
   <div className="container" data-aos="fade-up">
     <div className="row gy-4">
       {loading ? (
-        <p>Loading...</p>
+        <LoadingSpinner/>
       ) : (
         Restaurent.map((restaurant) => (
           <div onClick={() => handleView(restaurant.id)} key={restaurant.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * restaurant.id} style={{padding:"0.4cm"}}>

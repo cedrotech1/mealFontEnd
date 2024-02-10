@@ -3,6 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi';
 import { Modal, Button } from 'react-bootstrap';
+import LoadingSpinner from '../../components/loading'; 
+
+
 
 const LandingPage = () => {
     const [formData, setFormData] = useState({
@@ -15,7 +18,7 @@ const LandingPage = () => {
         image:''
     });
 
- 
+    const [loading, setLoading] = useState(true);
 
     const [formDataImage, setFormDataImage] = useState({
         image: null,
@@ -82,10 +85,10 @@ const LandingPage = () => {
             } else {
               console.error('Failed to fetch Restaurent:', data.message);
             }
-            // setLoading(false);
+            setLoading(false);
           } catch (error) {
             console.error('Error fetching Restaurent:', error);
-            // setLoading(false);
+            setLoading(false);
           }
         };
     
@@ -112,8 +115,10 @@ const LandingPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+       
 
-        try {
+        try { 
+            setLoading(true); 
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/restaurent/`, {
                 method: 'PUT',
                 headers: {
@@ -131,6 +136,7 @@ const LandingPage = () => {
 
                 await new Promise((resolve) => setTimeout(resolve, 3000));
                 window.location.reload();
+                setLoading(false); 
             } else {
                 const errorData = await response.json();
                 setError(errorData.message);
@@ -148,6 +154,7 @@ const LandingPage = () => {
         e.preventDefault();
 
         try {
+            setLoading(true); 
             const formDataUpload = new FormData();
             formDataUpload.append('image', formDataImage.image);
 
@@ -165,6 +172,7 @@ const LandingPage = () => {
     
                 await new Promise((resolve) => setTimeout(resolve, 2000));
                 window.location.reload();
+                setLoading(false); 
             } else {
                 const errorData = await response.json();
                 setError(errorData.message);
@@ -180,6 +188,8 @@ const LandingPage = () => {
 
     return (
         <>
+         
+                 
             <section id="contact" className="contact" style={{ marginTop: 'cm' }}>
                 <div className="container" data-aos="fade-up">
                     <div className="row gx-lg-0 gy-4">
@@ -257,9 +267,13 @@ const LandingPage = () => {
                             
                        
                                 <div className="d-flex justify-content-between">
-                                    <button type="submit" className="form-control" style={{ borderRadius: '10PX', backgroundColor: 'darkblue' }}>
+                                    {/* <button type="submit" className="form-control" style={{ borderRadius: '10PX', backgroundColor: 'darkblue' }}>
                                         Edit profile
-                                    </button>
+                                    </button> */}
+
+                                    <button type="submit" style={{ borderRadius: '10PX', backgroundColor: 'darkblue',width:'100%' }} className='form-contral' disabled={loading}>
+              {loading ? <LoadingSpinner /> : ' Edit profile'}
+            </button>
                                 </div>
                             
                             </form>
@@ -268,11 +282,12 @@ const LandingPage = () => {
                 </div>
             </section>
 
+            
         
 
             <Modal show={showFileUploadModal} onHide={handleCloseFileUploadModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit Profile Picture</Modal.Title>
+                    <Modal.Title> Restourant cover Picture</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handleSubmitProfile} className="myform">
@@ -281,9 +296,9 @@ const LandingPage = () => {
                                 <input type="file" className="form-control" name="image" id="image" onChange={handleChangeProfile} />
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="form-control">
-                                    Edit
-                                </button>
+                            <button type="submit" style={{ borderRadius: '10PX', backgroundColor: 'darkblue' }} className={`form-control ${loading ? 'loading' : ''}`} disabled={loading}>
+              {loading ? <LoadingSpinner /> : ' apload'}
+            </button>
                             </div>
                         </div>
                     </form>
