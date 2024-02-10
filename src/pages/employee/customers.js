@@ -289,12 +289,12 @@ const Dashboard = () => {
                   {/* Modal component */}
                   {/* Modal component */}
 
-                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke' }}>
+                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-4.5cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
 
                         <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start" style={{ marginTop: '0cm', fontFamily: 'monospace' }}>
-                          <div className="row" style={{ backgroundColor: 'whitesmoke' }}>
+                          <div className="row" style={{marginBottom:'0.5cm'}}>
 
 
                             <div className="col-xl-6 col-md-6" style={{ padding: '0.4cm' }}>
@@ -310,12 +310,12 @@ const Dashboard = () => {
                                   fontFamily: 'monospace',
                                   textDecoration: 'none',
                                   padding: '0.2cm',
-                                  width: '4cm',
-                                  marginTop: '0cm',
-                                  marginBottom: '1cm',
+                                  // width: '4cm',
+                                  marginTop: '1.4cm',
+                                  marginBottom: '0.5cm',
                                   // color: 'black',
                                   height: 'auto',
-                                  width: '6cm',
+                                  width: '13.5cm',
                                   border: '0px',
                                 }}
                               />
@@ -323,7 +323,7 @@ const Dashboard = () => {
 
 
                             </div>
-                            <div className="col-xl-6 col-md-6" style={{ padding: '0.4cm' }}>
+                            <div className="col-xl-6 col-md-6" >
                               {/* <h6 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray' }}>LIST OF CARD CUSTOMERS </h6> */}
 
                             </div>
@@ -333,7 +333,7 @@ const Dashboard = () => {
                             {
                               CustomersAdmin.length > 0 ? (
                                 CustomersAdmin.map((Customer) => (
-                                  <div  onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ padding: '' }}>
+                                  <div  onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ marginTop: '-0.1cm' }}>
                                     <div className="member col-xl-12" style={{padding:'0.3cm'}}>
                                              {Customer.image && Customer.image !== 'null' ? (
                                             <img src={Customer.image} className="img-fluid" alt="" style={{ borderRadius: '', marginBottom: '0.5cm',width:'11cm' }} />
@@ -363,7 +363,7 @@ const Dashboard = () => {
                           </div>
 
                         </div>
-                        <div className="col-lg-6 order-1 order-lg-2" style={{ marginTop: '1cm', fontFamily: 'monospace', color: 'white' }}>
+                        <div className="col-lg-6 order-1 order-lg-2" style={{ marginTop: '1.6cm', fontFamily: 'monospace', color: 'white' }}>
                           {/* <img src="assets/img/breakfast from bed-pana.svg" className="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100" /> */}
                           <div className="row member" style={{ marginTop: '2cm'}}>
                             <div className="col-xl-6 col-md-6 d-flex">
@@ -405,15 +405,15 @@ const Dashboard = () => {
                   </section>
 
 
-                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke' }}>
+                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-1cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
 
                         <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start" style={{ marginTop: '0cm', fontFamily: 'monospace' }}>
-                          <div className="row" style={{ backgroundColor: 'whitesmoke' }}>
+                          <div className="row"  style={{marginBottom:'0.5cm'}}>
 
 
-                            <div className="col-xl-6 col-md-6" style={{ padding: '0.4cm' }}>
+                            <div className="col-xl-6 col-md-6" style={{ padding: '0cm' }}>
 
                               <input
                                 placeholder='Filter category...'
@@ -427,12 +427,11 @@ const Dashboard = () => {
                                   fontFamily: 'monospace',
                                   textDecoration: 'none',
                                   padding: '0.2cm',
-                                  width: '4cm',
-                                  marginTop: '0cm',
-                                  marginBottom: '1cm',
+                                   marginTop: '-0.5cm',
+                                  // marginBottom: '1cm',
                                   // color: 'black',
                                   height: 'auto',
-                                  width: '6cm',
+                                  width: '13.5cm',
                                   border: '0px',
 
                                 }}
@@ -441,9 +440,7 @@ const Dashboard = () => {
 
 
                             </div>
-                            <div className="col-xl-6 col-md-6" style={{ padding: '0.4cm' }}>
-                              {/* <h6 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray' }}>LIST OF CARD CATEGORIES </h6> */}
-
+                            <div className="col-xl-6 col-md-6" style={{ padding: '0cm' }}>
                             </div>
 
                           </div>
@@ -454,7 +451,7 @@ const Dashboard = () => {
                                   <div className="member" style={{padding:'0.3cm' }}>
                                     <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="" style={{ height: 'auto', width: '100%', borderRadius: '7px' }} />
                                     <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase' }}>{category.name}</h4>
-                                    <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p>
+                                    {/* <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p> */}
                                     <p style={{ fontFamily: 'cursive', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
                                       Price: {category.price}
                                     </p>

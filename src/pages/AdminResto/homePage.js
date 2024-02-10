@@ -8,6 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEdit, faCheck, faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadingSpinner from '../../components/loading'; // Import the LoadingSpinner component
+
+
 
 
 import Menu from "../../components/MenuDeskTop";
@@ -19,37 +22,13 @@ const Dashboard = () => {
   const [show, setShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showDetailModal, setShowDetailModal] = useState(false);
-
-
-  const handleToggleModal = () => {
-    setShowModal(!showModal);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleShowDetailModal = () => {
-    setShowDetailModal(true);
-  };
-
-  const handleCloseDetailModal = () => {
-    setShowDetailModal(false);
-  };
-
-
+  const handleToggleModal = () => { setShowModal(!showModal); };
+  const handleCloseModal = () => {setShowModal(false); };
+  const handleShowDetailModal = () => {setShowDetailModal(true);  };
+  const handleCloseDetailModal = () => { setShowDetailModal(false);  };
   const [showModal1, setShowModal1] = useState(false);
-
-  const handleToggleModal1 = () => {
-    setShowModal1(!showModal1);
-  };
-
-  const handleCloseModal1 = () => {
-    setShowModal1(false);
-  };
-
-
-
+  const handleToggleModal1 = () => { setShowModal1(!showModal1); };
+  const handleCloseModal1 = () => { setShowModal1(false);  };
   const [EmployeesAdmin, setEmployeesAdmin] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
@@ -264,6 +243,7 @@ const Dashboard = () => {
     e.preventDefault();
 
     try {
+      setLoading(true); 
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/addUser`, {
         method: 'POST',
         headers: {
@@ -290,6 +270,9 @@ const Dashboard = () => {
     } catch (error) {
       console.error('Error creating account', error);
       setError('Failed to create account. Please try again later.');
+    }
+    finally {
+      setLoading(false); // Set loading to false when request is complete
     }
   };
 
@@ -513,11 +496,10 @@ const Dashboard = () => {
                             </div>
                           </div>
                           <div className="text-center">
-                            <button type="submit" className="form-control">
-                              Create Account
-                            </button>
+                          <button type="submit" style={{color:'black'}} className={`form-control ${loading ? 'loading' : ''}`} disabled={loading}>
+                    {loading ? <LoadingSpinner /> : 'Create Account'}
+                  </button>
                           </div>
-                          {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
                         </form>
                       </Modal.Body>
 
@@ -525,7 +507,7 @@ const Dashboard = () => {
 
                     <Modal
                       className="modal fade bd-example-modal-lg"
-                      size="lg" // Add this line to set the size to large
+                      size="lg" 
                       tabindex="-1"
                       role="dialog"
                       aria-labelledby="myLargeModalLabel"
@@ -537,12 +519,8 @@ const Dashboard = () => {
                         <Modal.Title>User Details</Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
-                        {/* Display detailed information here */}
                         {selectedUser && (
                           <>
-                            {/* <p>Name: {selectedUser.firstname} {selectedUser.lastname}</p>
-        <p>Email: {selectedUser.email}</p>
-        <p>Phone: {selectedUser.phone}</p> */}
                             <section id="team" className="team">
                               <div className="container" data-aos="fade-up">
                                 <div className="row">

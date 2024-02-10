@@ -7,11 +7,13 @@ import '../../css/main2.css';
 import Footer from '../../components/footer';
 import Menu from '../../components/menu';
 import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../../components/loading'; 
+
 // import 'react-toastify/dist/ReactToastify.css';
 
 const LandingPage = () => {
   const navigate = useNavigate(); 
-
+  const [loading, setLoading] = useState(false); 
 
   const [formData, setFormData] = useState({
     firstname: '',
@@ -30,6 +32,7 @@ const LandingPage = () => {
     e.preventDefault();
 
     try {
+      setLoading(true); 
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/signup`, {
         method: 'POST',
         headers: {
@@ -45,7 +48,8 @@ const LandingPage = () => {
       if (response.ok) {
         const res = await response.json();
         toast.success(res.message);
-        // navigate('./login');
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        window.location.reload();
       } else {
         const errorData = await response.json();
         setError(errorData.message);
@@ -54,6 +58,8 @@ const LandingPage = () => {
     } catch (error) {
       console.error('Error creating account', error);
       setError('Failed to create account. Please try again later.');
+    }finally {
+      setLoading(false); // Set loading to false when request is complete
     }
   };
 
@@ -101,11 +107,11 @@ const LandingPage = () => {
 
                 <div className="form-group mt-3">
                   <span>password</span>
-                  <input type="text" className="form-control" name="password" id="password" placeholder="*********" onChange={handleChange} />
+                  <input type="password" className="form-control" name="password" id="password" placeholder="*********" onChange={handleChange} />
                 </div>
                 <div className="form-group mt-3">
                   <span>confirm password</span>
-                  <input type="text" className="form-control" name="confirmPassword" id="confirmPassword" placeholder="*********" onChange={handleChange}  />
+                  <input type="password" className="form-control" name="confirmPassword" id="confirmPassword" placeholder="*********" onChange={handleChange}  />
                 </div>
 
 
@@ -120,9 +126,9 @@ const LandingPage = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button type="submit" className="form-control">
-                    Create Account
-                  </button>
+                <button type="submit" style={{color:'black'}} className={`form-control ${loading ? 'loading' : ''}`} disabled={loading}>
+              {loading ? <LoadingSpinner /> : 'Create account'}
+            </button>
                 </div>
                 {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
               </form>

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import '../../css/main2.css';
+import LoadingSpinner from '../../components/loading'; // Import the LoadingSpinner component
+
 
 const LandingPage = () => {
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false); 
 
   const [formData, setFormData] = useState({
     email: '',
@@ -16,11 +16,10 @@ const LandingPage = () => {
   });
 
   const [error, setError] = useState(null);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
+      setLoading(true); 
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
@@ -28,7 +27,6 @@ const LandingPage = () => {
         },
         body: JSON.stringify({
           ...formData,
-
         }),
       });
 
@@ -38,9 +36,9 @@ const LandingPage = () => {
 
         localStorage.setItem('token', res.token);
         localStorage.setItem('user', JSON.stringify(res.user));
-       
+
         const role = res.user.role;
-        await new Promise(resolve => setTimeout(resolve, 3000)); // Adjust the delay time as needed
+        await new Promise((resolve) => setTimeout(resolve, 3000));
 
         if (role === 'customer') {
           await navigate('../list');
@@ -51,10 +49,6 @@ const LandingPage = () => {
         } else if (role === 'employee') {
           await navigate('../emplyoyee_customers');
         }
-        
-      
-      
-
       } else {
         const errorData = await response.json();
         setError(errorData.message);
@@ -62,7 +56,9 @@ const LandingPage = () => {
       }
     } catch (error) {
       console.error('Error creating account', error);
-      setError('Failed to create account. Please try again later.');
+      setError('Failed to create an account. Please try again later.');
+    } finally {
+      setLoading(false); // Set loading to false when request is complete
     }
   };
 
@@ -71,9 +67,9 @@ const LandingPage = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    // Clear error when user starts typing
     setError(null);
   };
+
 
   return (
     <>
@@ -102,7 +98,11 @@ const LandingPage = () => {
                 </div>
 
 
-                <div className="text-center"><button type="submit" className="form-control" >login</button></div>
+                <div className="text-center">
+                <button type="submit" style={{color:'black'}} className={`form-control ${loading ? 'loading' : ''}`} disabled={loading}>
+              {loading ? <LoadingSpinner /> : 'Login'}
+            </button>
+                  </div>
               </form>
             </div>
             <div className="col-lg-5 order-1 order-lg-2 d-flex align-items-center justify-content-center">

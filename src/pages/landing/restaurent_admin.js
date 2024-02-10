@@ -7,10 +7,13 @@ import '../../css/main2.css';
 import Footer from '../../components/footer';
 import Menu from '../../components/menu';
 import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../../components/loading'; 
+
 // import 'react-toastify/dist/ReactToastify.css';
 
 const LandingPage = () => {
   const navigate = useNavigate(); 
+  const [loading, setLoading] = useState(false); 
 
   const [formData, setFormData] = useState({
     firstname: '',
@@ -29,7 +32,8 @@ const LandingPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/v1/users/signup', {
+      setLoading(true); 
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,14 +41,17 @@ const LandingPage = () => {
         body: JSON.stringify({
           ...formData,
           role: 'restaurentadmin',
-          
+        
         }),
       });
 
       if (response.ok) {
         const res = await response.json();
         toast.success(res.message);
-        // navigate('../login');
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        window.location.reload();
+
+        // navigate('./login');
       } else {
         const errorData = await response.json();
         setError(errorData.message);
@@ -53,6 +60,8 @@ const LandingPage = () => {
     } catch (error) {
       console.error('Error creating account', error);
       setError('Failed to create account. Please try again later.');
+    }finally {
+      setLoading(false); // Set loading to false when request is complete
     }
   };
 
@@ -69,7 +78,7 @@ const LandingPage = () => {
     <>
       <Menu />
 
-      <section id="hero" className="hero" style={{ marginTop: '1cm' }}>
+      <section id="hero" className="hero" style={{ marginTop: '1.5cm' }}>
         <div className="container position-relative">
           <div className="row gy-5" data-aos="fade-in">
             <div className="col-lg-1 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start"></div>
@@ -119,9 +128,9 @@ const LandingPage = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button type="submit" className="form-control">
-                    Create Account
-                  </button>
+                <button type="submit" style={{color:'black'}} className={`form-control ${loading ? 'loading' : ''}`} disabled={loading}>
+              {loading ? <LoadingSpinner /> : 'Create account'}
+            </button>
                 </div>
                 {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
               </form>
