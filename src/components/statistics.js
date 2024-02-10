@@ -59,9 +59,9 @@ const App = () => {
 <div className="row">
           
            <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                <div className="row member">
+                   <div className="row member" style={{padding:'0.2cm'}}>
 
-                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
 
                     <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
                       {statistics.admin.users}
@@ -84,9 +84,9 @@ const App = () => {
                 
                 
                 <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                <div className="row member">
+                   <div className="row member" style={{padding:'0.2cm'}}>
 
-                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
 
                     <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
                       {statistics.admin.restaurants}
@@ -114,8 +114,8 @@ const App = () => {
 
 
                 <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                          <div className="row member">
-                            <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                             <div className="row member" style={{padding:'0.2cm'}}>
+                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
                             <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
                               {statistics.resto.actives}
                               </h1>
@@ -137,8 +137,8 @@ const App = () => {
 
 
                         <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                          <div className="row member">
-                            <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                          <div className="row member" style={{padding:'0.2cm'}}>
+                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
                             <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
                               {statistics.resto.disactives}
                               </h1>
@@ -159,9 +159,9 @@ const App = () => {
 
 
                         <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                <div className="row member">
+                   <div className="row member" style={{padding:'0.2cm'}}>
 
-                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
 
                     <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
                       {/* {statistics.admin.users} */}
@@ -205,8 +205,8 @@ const App = () => {
 
 
               <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                <div className="row member">
-                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                   <div className="row member" style={{padding:'0.2cm'}}>
+                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
                     <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
                       {statistics.resto.employees}
                     </h1>
@@ -224,8 +224,8 @@ const App = () => {
 
 
               <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                   <div className="row member">
-                            <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                      <div className="row member" style={{padding:'0.2cm'}}>
+                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
                             <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
                               {statistics.resto.categories}
                               </h1>
@@ -248,8 +248,8 @@ const App = () => {
 
 
                         <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                          <div className="row member">
-                            <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                             <div className="row member" style={{padding:'0.2cm'}}>
+                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
                             <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
                               {statistics.resto.cards}
                               </h1>
@@ -270,8 +270,8 @@ const App = () => {
 
 
                         <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                          <div className="row member">
-                            <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                             <div className="row member" style={{padding:'0.2cm'}}>
+                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
                             <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
                               {statistics.resto.actives}
                               </h1>
@@ -293,8 +293,8 @@ const App = () => {
 
 
                         <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                          <div className="row member">
-                            <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
+                             <div className="row member" style={{padding:'0.2cm'}}>
+                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
                             <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
                               {statistics.resto.disactives}
                               </h1>

@@ -11,38 +11,30 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Menu from "../../components/MenuDeskTop";
 import Statistics from "../../components/statistics-component";
 import Menu2 from "../../components/MenuMobile";
+import LoadingSpinner from '../../components/loading'; // Import the LoadingSpinner component
+
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const handleToggleModal = () => { setShowModal(!showModal);  };
-  const handleCloseModal = () => {setShowModal(false);  };
+  const handleToggleModal = () => { setShowModal(!showModal); };
+  const handleCloseModal = () => { setShowModal(false); };
   const [Cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/categories/`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/categories/`, { headers: { Authorization: `Bearer ${token}`, }, });
         const data = await response.json();
-        // const [Cards, setCards] = useState([]);
         if (data.success) {
-
-
-          setCards(data.data);
-
+          // setCards(data.data);
           console.log(data.data);
         } else {
           console.error('Failed to fetch Cards:', data.message);
         }
-
-        // Set loading to false after fetching data
         setLoading(false);
       } catch (error) {
         console.error('Error fetching Cards:', error);
@@ -57,7 +49,7 @@ const Dashboard = () => {
 
   const handleView = (CardId) => {
     navigate(`../resto_cate_view/${CardId}`);
-     };
+  };
 
   const handleModify = (CardId) => {
     // Handle modify logic
@@ -170,12 +162,12 @@ const Dashboard = () => {
 
 
 
-  
+
   const [formData, setFormData] = useState({
     name: '',
     price: '',
     description: '',
- 
+
 
   });
 
@@ -193,8 +185,6 @@ const Dashboard = () => {
         },
         body: JSON.stringify({
           ...formData,
-          // role: 'employee',
-          // status: 'active',
         }),
       });
 
@@ -202,7 +192,6 @@ const Dashboard = () => {
         const res = await response.json();
         toast.success(res.message);
         window.location.reload();
-        // navigate('./login');
       } else {
         const errorData = await response.json();
         setError(errorData.message);
@@ -219,18 +208,14 @@ const Dashboard = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    // Clear error when Card starts typing
     setError(null);
   };
-
-  // handlefilter
-
   const [value, setFilterValue] = useState('');
   const handleFilter = (e) => {
     setFilterValue(e.target.value);
     setError(null);
   };
-  
+
   useEffect(() => {
     const fetchCards = async () => {
       try {
@@ -239,19 +224,19 @@ const Dashboard = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-  
+
         const data = await response.json();
-  
+
         if (data.success) {
           // Ensure that 'Cards' is an array before filtering
           const CardsArray = Array.isArray(data.data) ? data.data : [];
-  
+
           const filteredCards = CardsArray.filter(Card =>
-            (Card.price.toLowerCase().includes(value.toLowerCase()) ||
+          (Card.price.toLowerCase().includes(value.toLowerCase()) ||
             Card.name.toLowerCase().includes(value.toLowerCase()) ||
-            Card.status.toLowerCase().includes(value.toLowerCase())) 
+            Card.status.toLowerCase().includes(value.toLowerCase()))
           );
-  
+
           setCards(filteredCards);
         } else {
           console.error('Failed to fetch Cards:', data.message);
@@ -262,7 +247,7 @@ const Dashboard = () => {
         setLoading(false);
       }
     };
-  
+
     fetchCards();
   }, [value]);
 
@@ -270,8 +255,9 @@ const Dashboard = () => {
 
 
   return (
+ 
     <body className='mybody' >
-      <div className="dashboard" style={{backgroundColor:'whitesmoke'}}>
+      <div className="dashboard" style={{ backgroundColor: 'whitesmoke' }}>
         <div className="container-fluid">
           <div className="row">
             {/* Sidebar (visible on medium devices and larger) */}
@@ -281,9 +267,9 @@ const Dashboard = () => {
                   <Offcanvas.Title>Menu</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                
-                    <Menu2 />
-               
+
+                  <Menu2 />
+
                 </Offcanvas.Body>
               </Offcanvas>
             </div>
@@ -296,10 +282,12 @@ const Dashboard = () => {
                     <Menu />
                   </div>
                 )}
+                   {loading ? <LoadingSpinner /> : <>
+                   
                 <div className={`col-md-10 ${show ? 'content-shift' : ''}`}>
 
-                <section id="team" className="team">
-                    <div className="container" data-aos="fade-up" style={{marginLeft:'-0.2cm'}}>
+                  <section id="team" className="team">
+                    <div className="container" data-aos="fade-up" style={{ marginLeft: '-0.2cm' }}>
                       <div className="row">
 
                         {/* menu bars */}
@@ -310,18 +298,15 @@ const Dashboard = () => {
                         </div>
 
 
-             <Statistics/>
+                        <Statistics />
 
 
                       </div>
                     </div>
                   </section>
 
-                  <div className="row" style={{backgroundColor:'whitesmoke'}}>
-
-
-                    <div className="col-xl-3 col-md-3" style={{ padding: '0.4cm' }}>
-
+                  <div className="row" style={{ backgroundColor: 'whitesmoke' }}>
+                    <div className="col-xl-4 col-md-4" style={{ padding: '0.4cm' }}>
                       <input
                         placeholder='Filter here...'
                         variant=""
@@ -332,27 +317,25 @@ const Dashboard = () => {
                           fontFamily: 'monospace',
                           textDecoration: 'none',
                           padding: '0.2cm',
-                          width: '4cm',
+                          width: '5cm',
                           marginTop: '0cm',
-                          marginBottom: '1cm',
+                          marginLeft: '0.3cm',
+                          // marginBottom: '1cm',
                           // color: 'black',
                           height: 'auto',
-                          width: '6cm',
+                          // width: '6cm',
                           border: '0px',
                           outline: 'none',
 
                         }}
                       />
-
-
-
                     </div>
-                    <div className="col-xl-5 col-md-5" style={{ padding: '0.4cm' }}>
-                    <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray' }}>LIST OF CARD CATEGORIES </h4>
+                    <div className="col-xl-4 col-md-4" style={{ paddingRight: '0.4cm' }}>
+                      <h4 style={{ textAlign: 'justify', paddingBottom: '0cm', color: 'gray', paddingLeft: '0.4cm' }}>LIST OF OUR EMPLOYEES </h4>
 
                     </div>
                     <div className="col-xl-4 col-md-4" style={{ padding: '0.4cm' }}>
-                      <div style={{ textAlign: 'right',marginBottom:'0.4cm' }}>
+                      <div style={{ textAlign: 'right', marginBottom: '0.4cm' }}>
                         <Button
                           variant=""
                           onClick={handleToggleModal}
@@ -362,20 +345,18 @@ const Dashboard = () => {
                             fontFamily: 'monospace',
                             textDecoration: 'none',
                             padding: '0.2cm',
-                            width: '5cm',
+                            width: '4cm',
                             // marginTop: '-2cm',
+                            marginRight: '0.3cm',
                             color: 'black',
                             height: 'auto',
                           }}
                         >
-                          Add Card Category 
+                          Add Category
                         </Button>
                       </div>
                     </div>
                   </div>
-
-                  {/* Modal component */}
-                  {/* Modal component */}
                   <Modal show={showModal} onHide={handleCloseModal}>
                     <Modal.Header closeButton>
                       <Modal.Title>Add Card Category</Modal.Title>
@@ -394,10 +375,10 @@ const Dashboard = () => {
                         </div>
                         <div className="form-group mt-3">
                           <span>description</span>
-                          <textarea type="text" className="form-control" name="description" id="email" style={{backgroundColor:'whitesmoke'}} placeholder="............." onChange={handleChange} />
+                          <textarea type="text" className="form-control" name="description" id="email" style={{ backgroundColor: 'whitesmoke' }} placeholder="............." onChange={handleChange} />
                         </div>
 
-                     
+
                         <div className="text-center">
                           <button type="submit" className="form-control">
                             Save
@@ -409,49 +390,52 @@ const Dashboard = () => {
 
                   </Modal>
 
-                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke' }}>
-  <div className="container" data-aos="fade-up">
-    <div className="row gy-4">
-      {Cards.length > 0 ? (
-        Cards.map((category, index) => (
-          <div onClick={() => handleView(category.id)} key={index} className="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
-            <div className="member" style={{padding:"0.4cm"}}>
-            {category.image!==null && category.image!=='null' ? (
-                                        <img src={category.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm'  }}  />                                  
-                                        ) : (
-                                        <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'100%' }} />
-                                        )}
-              <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase',marginBottom:'0.5cm' }}>{category.name}</h4>
-              {/* <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p> */}
-              <p style={{ fontFamily: 'cursive', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
-                Price: {category.price} &nbsp;Rwf
-              </p>
-              <p style={{ fontFamily: 'cursive', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
-                <i> status: {category.status}</i>
-              </p>
-              <button onClick={() => handleView(category.id)} style={{ backgroundColor: 'white', border: '0px' }}>
-                <FontAwesomeIcon icon={faEye} />
-              </button>
-              <button onClick={() => handleModify(category.id)} style={{ backgroundColor: 'white', border: '0px' }}>
-                <FontAwesomeIcon icon={faEdit} style={{ Color: 'gray' }} />
-              </button>
-              {renderActivationButton(category.id, category.status)}
-            </div>
-          </div>
-        ))
-      ) : (
-        <div className="col-12 text-center">
-          <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray',border:'4PX SOLID lightgray',padding:'1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
-        </div>
-      )}
-    </div>
-  </div>
-</section>
+                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke', marginTop: '-1.5cm' }}>
+                    <div className="container" data-aos="fade-up">
+                      <div className="row gy-4">
+                        {Cards.length > 0 ? (
+                          Cards.map((category, index) => (
+                            <div onClick={() => handleView(category.id)} key={index} className="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
+                              <div className="member" style={{ padding: "0.4cm" }}>
+                                {category.image !== null && category.image !== 'null' ? (
+                                  <img src={category.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '9cm' }} />
+                                ) : (
+                                  <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '100%' }} />
+                                )}
+                                <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase', marginBottom: '0.5cm' }}>{category.name}</h4>
+                                {/* <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p> */}
+                                <p style={{ fontFamily: 'cursive', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
+                                  Price: {category.price} &nbsp;Rwf
+                                </p>
+                                <p style={{ fontFamily: 'cursive', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
+                                  <i> status: {category.status}</i>
+                                </p>
+                                <button onClick={() => handleView(category.id)} style={{ backgroundColor: 'white', border: '0px' }}>
+                                  <FontAwesomeIcon icon={faEye} />
+                                </button>
+                                <button onClick={() => handleModify(category.id)} style={{ backgroundColor: 'white', border: '0px' }}>
+                                  <FontAwesomeIcon icon={faEdit} style={{ Color: 'gray' }} />
+                                </button>
+                                {renderActivationButton(category.id, category.status)}
+                              </div>
+                            </div>
+                          ))
+                        ) : (
+                          <div className="col-12 text-center">
+                            <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </section>
 
 
 
 
                 </div>
+
+                </>}
+
               </div>
             </main>
           </div>

@@ -386,7 +386,8 @@ const Dashboard = () => {
                   </Button>
                 </div>
 
-
+                {loading ? <LoadingSpinner /> : <>
+                   
 
                 {rest ? (
                   <div className={`col-md-10 ${show ? 'content-shift' : ''}`}>
@@ -395,19 +396,13 @@ const Dashboard = () => {
                       <div className="container" data-aos="fade-up" style={{ marginLeft: '-0.2cm' }}>
 
                         <div className="row">
-
-                          {/* menu bars */}
-
                           <Statistics />
                         </div>
                       </div>
                     </section>
 
                     <div className="row" style={{ backgroundColor: 'whitesmoke' }}>
-
-
                       <div className="col-xl-4 col-md-4" style={{ padding: '0.4cm' }}>
-
                         <input
                           placeholder='Filter here...'
                           variant=""
@@ -418,23 +413,21 @@ const Dashboard = () => {
                             fontFamily: 'monospace',
                             textDecoration: 'none',
                             padding: '0.2cm',
-                            width: '4cm',
+                            width: '5cm',
                             marginTop: '0cm',
-                            marginBottom: '1cm',
+                            marginLeft:'0.3cm',
+                            // marginBottom: '1cm',
                             // color: 'black',
                             height: 'auto',
-                            width: '6cm',
+                            // width: '6cm',
                             border: '0px',
                             outline: 'none',
 
                           }}
                         />
-
-
-
                       </div>
-                      <div className="col-xl-4 col-md-4" style={{ padding: '0.4cm' }}>
-                        <h4 style={{ textAlign: 'justify', paddingBottom: '0.5cm', color: 'gray', padding: '0.3cm' }}>LIST OF OUR EMPLOYEES </h4>
+                      <div className="col-xl-4 col-md-4" style={{ paddingRight: '0.4cm' }}>
+                        <h4 style={{ textAlign: 'justify', paddingBottom: '0cm', color: 'gray', paddingLeft: '0.4cm' }}>LIST OF OUR EMPLOYEES </h4>
 
                       </div>
                       <div className="col-xl-4 col-md-4" style={{ padding: '0.4cm' }}>
@@ -450,6 +443,7 @@ const Dashboard = () => {
                               padding: '0.2cm',
                               width: '4cm',
                               // marginTop: '-2cm',
+                              marginRight:'0.3cm',
                               color: 'black',
                               height: 'auto',
                             }}
@@ -716,7 +710,7 @@ const Dashboard = () => {
 
                 )
                 }
-
+</>}
               </div>
             </main>
           </div>
