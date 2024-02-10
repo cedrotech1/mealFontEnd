@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi';
 import { useNavigate, useParams } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-
+import LoadingSpinner from '../../components/loading';
 import Menu from "../../components/MenuDeskTop";
 import Menu2 from "../../components/MenuMobile";
 
@@ -162,7 +162,7 @@ const Dashboard = () => {
                   <Offcanvas.Title>Menu</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                <Menu2 />
+                  <Menu2 />
                 </Offcanvas.Body>
               </Offcanvas>
             </div>
@@ -197,10 +197,12 @@ const Dashboard = () => {
                         </div>
 
 
-                   
+
                       </div>
                     </div>
                   </section>
+                  {loading ? <LoadingSpinner /> : <>
+                  
 
 
                   <section id="hero" className="hero" style={{ backgroundColor: 'whitesmoke', padding: '0cm', marginTop: '-0.7cm' }}>
@@ -210,14 +212,14 @@ const Dashboard = () => {
 
 
                           <div className="col-xl-12 col-md-12" data-aos="fade-up" data-aos-delay="200" style={{ backgroundColor: 'white', paddingTop: '0.5cm', padding: '0.3cm', borderRadius: '20px' }} >
-                        {Cards.cardUser && (<div className="member" style={{padding:'0.3cm' }}>
+                            {Cards.cardUser && (<div className="member" style={{ padding: '0.3cm' }}>
                               {Cards.cardUser.image && Cards.cardUser.image !== 'null' ? (
-                                            <img src={Cards.cardUser.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'11cm' }} />
+                                <img src={Cards.cardUser.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '11cm' }} />
 
-                                        ) : (
-                                            <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }}  />
+                              ) : (
+                                <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '9cm' }} />
 
-                                        )}
+                              )}
                               <h4 style={{ textAlign: 'center', fontFamily: 'monospace', textTransform: 'uppercase', marginTop: '0.3cm' }}>
                                 {Cards.cardUser.firstname} &nbsp;{Cards.cardUser.lastname}
                               </h4>
@@ -257,38 +259,38 @@ const Dashboard = () => {
                                     <img key={index} src={src} className="img-fluid" alt="" style={{ height: '0.8cm', marginRight: '2px', marginBottom: '5px' }} />
                                   ))} */}
 
-<section id="team" className="team" style={{marginTop:'-2cm'}}>
-                    <div className="container" data-aos="fade-up">
-                      <div className="row">
+                                  <section id="team" className="team" style={{ marginTop: '-2cm' }}>
+                                    <div className="container" data-aos="fade-up">
+                                      <div className="row">
 
-                                  <div className="col-xl-12" data-aos="fade-up" data-aos-delay="100">
-                                    <div className="row member">
+                                        <div className="col-xl-12" data-aos="fade-up" data-aos-delay="100">
+                                          <div className="row member">
 
-                                      <div className=" col-xl-6 col-md-6" style={{ backgroundColor: 'white',padding:'0.5cm' }}>
+                                            <div className=" col-xl-6 col-md-6" style={{ backgroundColor: 'white', padding: '0.5cm' }}>
 
-                                          <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center',color:'green'}}>
-                                            <i style={{color:'red'}}>{x}</i> 
-                                      /60 </h1>
-                                      </div>
-                                      <div className=" col-xl-6  col-md-6" style={{ margin: '0cm' ,padding:'0.2cm'}}>
-                                        <h5 style={{ textAlign: 'center' }}>Card standing</h5>
+                                              <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center', color: 'green' }}>
+                                                <i style={{ color: 'red' }}>{x}</i>
+                                                /60 </h1>
+                                            </div>
+                                            <div className=" col-xl-6  col-md-6" style={{ margin: '0cm', padding: '0.2cm' }}>
+                                              <h5 style={{ textAlign: 'center' }}>Card standing</h5>
 
-                                        <p style={{ textAlign: 'center', fontFamily: 'sans-serif'  }}>
-                                          she/he has been used  {Cards.times}/60 means its remains  {Math.floor(Cards.times/60*100)}%,
-                                        </p>
-                                        <div className="d-flex justify-content-center justify-content-lg-start">
+                                              <p style={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
+                                                she/he has been used  {Cards.times}/60 means its remains  {Math.floor(Cards.times / 60 * 100)}%,
+                                              </p>
+                                              <div className="d-flex justify-content-center justify-content-lg-start">
 
+
+                                              </div>
+                                            </div>
+
+                                          </div>
 
                                         </div>
+
                                       </div>
-
                                     </div>
-
-                                  </div>
-
-                                  </div>
-                    </div>
-                  </section>
+                                  </section>
 
 
                                   <form onSubmit={handleSubmit} className="myform">
@@ -362,6 +364,11 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </section>
+
+
+                  </>}
+
+                  
                 </div>
               </div>
             </main>

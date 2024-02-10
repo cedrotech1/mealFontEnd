@@ -49,8 +49,9 @@ const Dashboard = () => {
                             ☰
                           </Button>
                         </div>
-                        {/* <Statistics /> */}
-                        <Profile  />
+                        {/* <div className="container-fluid" style={{backgroundColor:'red',padding:'0.5cm',marginTop:'-3cm'}}> */}
+                        <Profile />
+                        {/* </div> */}
                       </div>
                     </div>
                   </section>

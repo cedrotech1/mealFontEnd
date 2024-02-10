@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Menu from "../../components/MenuDeskTop";
 import Menu2 from "../../components/MenuMobile";
 import '../../css/main2.css';
-import LoadingSpinner from '../../components/loading'; 
+import LoadingSpinner from '../../components/loading';
 
 
 
@@ -40,10 +40,11 @@ const Dashboard = () => {
   const [times, setTimes] = useState(60);
 
 
-  const handleSubmit = async (e) => {e.preventDefault();
-    if(times!=0){
-      if(CustomersAdmin.length==1){
-        if(Cards.length==1){
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (times != 0) {
+      if (CustomersAdmin.length == 1) {
+        if (Cards.length == 1) {
           setFormData({
             userid: CustomersAdmin[0].id,
             category: Cards[0].id,
@@ -52,61 +53,61 @@ const Dashboard = () => {
             duration: '1 month'
           });
 
-          if(formData.userid!==1){
+          if (formData.userid !== 1) {
             // console.log(times)
             // console.log(formData)
 
-                   try {
-                   const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/card/add`, {
-                     method: 'POST',
-                     headers: {
-                       'Content-Type': 'application/json',
-                       Authorization: `Bearer ${token}`,
-                     },
-                     body: JSON.stringify({
-                       ...formData,
-                       // duration: x
-                     
-                     }),
-                   });
-             
-                   if (response.ok) {
-                     const res = await response.json();
-                     toast.success(res.message);
-                   } else {
-                     const errorData = await response.json();
-                     setError(errorData.message);
-                     toast.error(errorData.message);
-                   }
-                 } catch (error) {
-                   console.error('Error creating card', error);
-                   setError('Failed to create card. Please try again later.');
-                 }
+            try {
+              const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/card/add`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                  ...formData,
+                  // duration: x
 
-          }else{
+                }),
+              });
+
+              if (response.ok) {
+                const res = await response.json();
+                toast.success(res.message);
+              } else {
+                const errorData = await response.json();
+                setError(errorData.message);
+                toast.error(errorData.message);
+              }
+            } catch (error) {
+              console.error('Error creating card', error);
+              setError('Failed to create card. Please try again later.');
+            }
+
+          } else {
             toast.error("no !!");
           }
 
 
-     
-        
-        }else{
+
+
+        } else {
           toast.error("choose one category");
         }
-      
-      }else{
+
+      } else {
         toast.error("choose one customer");
       }
-    }else{
+    } else {
       toast.error('chose duration plz !!');
       console.log("error")
     }
   };
-  const handleChange = (e) => { setTimes( e.target.value );  };
+  const handleChange = (e) => { setTimes(e.target.value); };
 
 
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchCards = async () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/categories/`, {
@@ -120,7 +121,7 @@ const Dashboard = () => {
           setCards(data.data);
           console.log(data);
 
-    
+
         } else {
           console.error('Failed to fetch Cards:', data.message);
         }
@@ -152,9 +153,9 @@ const Dashboard = () => {
         if (data.success) {
           const CardsArray = Array.isArray(data.data) ? data.data : [];
           const filteredCards = CardsArray.filter(Card =>
-            (Card.price.toLowerCase().includes(value.toLowerCase()) ||
-              Card.name.toLowerCase().includes(value.toLowerCase()) ||
-              Card.status.toLowerCase().includes(value.toLowerCase()))
+          (Card.price.toLowerCase().includes(value.toLowerCase()) ||
+            Card.name.toLowerCase().includes(value.toLowerCase()) ||
+            Card.status.toLowerCase().includes(value.toLowerCase()))
           );
           setCards(filteredCards);
         } else {
@@ -247,25 +248,17 @@ const Dashboard = () => {
                   <Offcanvas.Title>Menu</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                <Menu2 />
+                  <Menu2 />
                 </Offcanvas.Body>
               </Offcanvas>
             </div>
             <main className="col-md-12 ms-sm-auto col-lg-12 px-md-4 allcontent">
               <div className="row">
-                {/* Sidebar Trigger Button (visible on small devices) */}
-
-
-                {/* Sidebar (visible on medium devices and larger when Offcanvas is closed) */}
                 {!show && (
                   <div className="col-md-2 d-none d-md-block d-md-blockx">
-                    {/* Your menu items go here */}
                     <Menu />
                   </div>
                 )}
-
-                {/* Your dashboard content goes here */}
-
                 <div className={`col-md-10 ${show ? 'content-shift' : ''}`}>
 
                   <section id="team" className="team">
@@ -278,26 +271,15 @@ const Dashboard = () => {
                             ☰
                           </Button>
                         </div>
-
-
-                        {/* <Statistics /> */}
-
-
                       </div>
                     </div>
                   </section>
-
-
-
-                  {/* Modal component */}
-                  {/* Modal component */}
-
-                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-4.5cm' }}>
+                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke', marginTop: '-4.5cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
 
                         <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start" style={{ marginTop: '0cm', fontFamily: 'monospace' }}>
-                          <div className="row" style={{marginBottom:'0.5cm'}}>
+                          <div className="row" style={{ marginBottom: '0.5cm' }}>
 
 
                             <div className="col-xl-6 col-md-6" style={{ padding: '0.4cm' }}>
@@ -317,6 +299,7 @@ const Dashboard = () => {
                                   marginTop: '1.4cm',
                                   marginBottom: '0.5cm',
                                   // color: 'black',
+                                  outline: 'none',
                                   height: 'auto',
                                   width: '13.5cm',
                                   border: '0px',
@@ -333,47 +316,47 @@ const Dashboard = () => {
 
                           </div>
                           <div className="row gy-4">
-                          {loading ? <LoadingSpinner /> : <>
-                  
-                          
-                            {
-                              CustomersAdmin.length > 0 ? (
-                                CustomersAdmin.map((Customer) => (
-                                  <div  onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ marginTop: '-0.1cm',marginBottom:'0.5cm' }}>
-                                    <div className="member col-xl-12" style={{padding:'0.3cm'}}>
-                                             {Customer.image && Customer.image !== 'null' ? (
-                                            <img src={Customer.image} className="img-fluid" alt="" style={{ borderRadius: '', marginBottom: '0.5cm',width:'11cm' }} />
+                            {loading ? <LoadingSpinner /> : <>
+
+
+                              {
+                                CustomersAdmin.length > 0 ? (
+                                  CustomersAdmin.map((Customer) => (
+                                    <div onClick={() => handleView(Customer.id)} key={Customer.id} className="col-xl-6 col-md-6 " data-aos="fade-up" data-aos-delay={100 * Customer.id} style={{ marginTop: '-0.1cm', marginBottom: '0.5cm' }}>
+                                      <div className="member col-xl-12" style={{ padding: '0.3cm' }}>
+                                        {Customer.image && Customer.image !== 'null' ? (
+                                          <img src={Customer.image} className="img-fluid" alt="" style={{ borderRadius: '', marginBottom: '0.5cm', width: '11cm' }} />
 
                                         ) : (
-                                            <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }}  />
+                                          <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '9cm' }} />
 
                                         )}
-                                      <h4 style={{ textAlign: 'center' }}>{Customer.firstname} &nbsp;{Customer.lastname}</h4>
-                                      <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: 'whitesmoke', padding: '0.4cm', marginTop: '20px', borderRadius: '6px' }}>
-                                        <BiMap className="" style={{ color: 'black' }} />&nbsp;&nbsp;{Customer.address} <br />
-                                        <BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} />&nbsp;&nbsp;{Customer.email} <br />
-                                        <BiPhone />&nbsp;&nbsp;{Customer.phone}
-                                      </p>
+                                        <h4 style={{ textAlign: 'center' }}>{Customer.firstname} &nbsp;{Customer.lastname}</h4>
+                                        <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: 'whitesmoke', padding: '0.4cm', marginTop: '20px', borderRadius: '6px' }}>
+                                          <BiMap className="" style={{ color: 'black' }} />&nbsp;&nbsp;{Customer.address} <br />
+                                          <BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} />&nbsp;&nbsp;{Customer.email} <br />
+                                          <BiPhone />&nbsp;&nbsp;{Customer.phone}
+                                        </p>
 
 
 
+                                      </div>
                                     </div>
+                                  ))
+                                ) : (
+                                  <div className="col-12 text-center">
+                                    <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
                                   </div>
-                                ))
-                              ) : (
-                                <div className="col-12 text-center">
-                                  <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
-                                </div>
-                              )}
+                                )}
 
-</>}
+                            </>}
 
                           </div>
 
                         </div>
                         <div className="col-lg-6 order-1 order-lg-2" style={{ marginTop: '1.6cm', fontFamily: 'monospace', color: 'white' }}>
                           {/* <img src="assets/img/breakfast from bed-pana.svg" className="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100" /> */}
-                          <div className="row member" style={{ marginTop: '2cm'}}>
+                          <div className="row member" style={{ marginTop: '2cm' }}>
                             <div className="col-xl-6 col-md-6 d-flex">
                               <img src='/assets/img/card.png' className="img-fluid" alt="" />
                             </div>
@@ -391,13 +374,13 @@ const Dashboard = () => {
                                   >
                                     <option value="0">......CHOSE</option>
                                     <option value="60">One month</option>
-                                 
+
                                     {/* Add more options as needed */}
                                   </select>
                                 </div>
 
                                 <div className="text-center">
-                                  <button type="submit" className="form-control" style={{marginTop:'0.5cm'}}>
+                                  <button type="submit" className="form-control" style={{ marginTop: '0.5cm' }}>
                                     save
                                   </button>
                                 </div>
@@ -413,12 +396,12 @@ const Dashboard = () => {
                   </section>
 
 
-                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-1cm' }}>
+                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke', marginTop: '-1cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
 
                         <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start" style={{ marginTop: '0cm', fontFamily: 'monospace' }}>
-                          <div className="row"  style={{marginBottom:'0.5cm'}}>
+                          <div className="row" style={{ marginBottom: '0.5cm' }}>
 
 
                             <div className="col-xl-6 col-md-6" style={{ padding: '0cm' }}>
@@ -435,12 +418,13 @@ const Dashboard = () => {
                                   fontFamily: 'monospace',
                                   textDecoration: 'none',
                                   padding: '0.2cm',
-                                   marginTop: '-0.5cm',
+                                  marginTop: '-0.5cm',
                                   // marginBottom: '1cm',
                                   // color: 'black',
                                   height: 'auto',
                                   width: '13.5cm',
                                   border: '0px',
+                                  outline: 'none',
 
                                 }}
                               />
@@ -453,32 +437,32 @@ const Dashboard = () => {
 
                           </div>
                           <div className="row gy-4">
-                           
-                          {loading ? <LoadingSpinner /> : <>
-                  
-                            {Cards.length > 0 ? (
-                              Cards.map((category, index) => (
-                                <div key={index} className="col-xl-6 col-md-6" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
-                                  <div className="member" style={{padding:'0.3cm' }}>
-                                    <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="" style={{ height: 'auto', width: '100%', borderRadius: '7px' }} />
-                                    <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase' }}>{category.name}</h4>
-                                    {/* <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p> */}
-                                    <p style={{ fontFamily: 'cursive', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
-                                      Price: {category.price}
-                                    </p>
-                                    <p style={{ fontFamily: 'cursive', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
-                                      <i> status: {category.status}</i>
-                                    </p>
 
+                            {loading ? <LoadingSpinner /> : <>
+
+                              {Cards.length > 0 ? (
+                                Cards.map((category, index) => (
+                                  <div key={index} className="col-xl-6 col-md-6" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
+                                    <div className="member" style={{ padding: '0.3cm' }}>
+                                      <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="" style={{ height: 'auto', width: '100%', borderRadius: '7px' }} />
+                                      <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase' }}>{category.name}</h4>
+                                      {/* <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p> */}
+                                      <p style={{ fontFamily: 'cursive', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
+                                        Price: {category.price}
+                                      </p>
+                                      <p style={{ fontFamily: 'cursive', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
+                                        <i> status: {category.status}</i>
+                                      </p>
+
+                                    </div>
                                   </div>
+                                ))
+                              ) : (
+                                <div className="col-12 text-center">
+                                  <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
                                 </div>
-                              ))
-                            ) : (
-                              <div className="col-12 text-center">
-                                <h4 style={{ textAlign: 'center', paddingBottom: '0.5cm', color: 'gray', border: '4PX SOLID lightgray', padding: '1cm' }}>{value ? 'NO MATCHING DATA FOUND' : 'NO DATA AVAILABLE'}</h4>
-                              </div>
-                            )}
-</>}
+                              )}
+                            </>}
                           </div>
 
                         </div>

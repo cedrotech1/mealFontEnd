@@ -4,6 +4,7 @@ import Footer from '../../components/footer';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi'; // Importing icons from the 'react-icons' library
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import LoadingSpinner from '../../components/loading'; 
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -27,18 +28,13 @@ const LandingPage = () => {
           },
         });
   
-        const data = await response.json();
-        // console.log(data);
-  
+        const data = await response.json();  
         if (data.success) {
-          // Assuming 'data.data' is an array of restaurants
           const ResArray = Array.isArray(data.data) ? data.data : [];
-
-          // Find the restaurant with the specified ID
           const filteredRes = ResArray.find(rest => rest.id === Number(id));
           
           if (filteredRes) {
-            // If a restaurant is found, set it in the state    restaurantCategories
+           
 console.log(filteredRes)
             setRestaurants([filteredRes]);
             setrestaurantCategories(filteredRes.restaurantCategories);
@@ -46,8 +42,6 @@ console.log(filteredRes)
           } else {
             console.error('Restaurant not found with ID:', id);
           }
-          
-          // Set loading to false after fetching data
           setLoading(false);
           
         } else {
@@ -73,6 +67,16 @@ console.log(filteredRes)
     <>
       <Menu />
 
+      {loading ?<> <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '6cm', // Use 100% of the viewport height
+    }}>
+      <div>
+        <LoadingSpinner />
+      </div>
+    </div></>: <>
 
       {Array.isArray(restaurants) && restaurants.length > 0 ? (
       
@@ -201,7 +205,7 @@ console.log(filteredRes)
                        </> ) : (
                           <></>
                         )}
-
+</>}
       <Footer />
 
 

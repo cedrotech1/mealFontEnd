@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from "../../components/MenuDeskTop";
 import Menu2 from "../../components/MenuMobile";
-
+import LoadingSpinner from '../../components/loading'; 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -133,7 +133,17 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </section>
-                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke' }}>
+                  {loading ? <> <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '3cm', // Use 100% of the viewport height
+      }}>
+        <div>
+          <LoadingSpinner />
+        </div>
+      </div></> : <>
+                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-2.5cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
                         <div className="col-lg-5 order-1 order-lg-1  flex-column justify-content-center text-center text-lg-start" style={{ marginTop: '0cm', fontFamily: 'monospace' }}>
@@ -161,6 +171,7 @@ const Dashboard = () => {
                           </div>
                         </div>
 
+                  
 
                         <div className="col-lg-7 order-1 order-lg-2" style={{ marginTop: '-0.5cm', fontFamily: 'monospace', color: 'white' }}>
                           {Array.isArray(Cards) && Cards.length > 0 ? (
@@ -194,9 +205,12 @@ const Dashboard = () => {
 
 
                         </div>
+                       
+
                       </div>
                     </div>
                   </section>
+                  </>}
                 </div>
               </div>
             </main>

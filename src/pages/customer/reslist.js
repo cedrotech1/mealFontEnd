@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import '../../css/main2.css';
-
+import LoadingSpinner from '../../components/loading'; 
 import Menu from '../../components/customerM';
 import Footer from '../../components/footer';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi'; // Importing icons from the 'react-icons' library
@@ -41,13 +41,13 @@ const LandingPage = () => {
   }, []);
 
   const handleView = (id) => {
-    // Handle view logic
-    // Example: Navigate to a page with the restaurant ID
     navigate(`../one/${id}`);
   };
   return (
     <>
       <Menu />
+      
+
       <section id="hero" className="hero"  style={{marginTop:'1cm'}}>
         <div className="container position-relative">
           <div className="row gy-5" data-aos="fade-in">
@@ -67,6 +67,16 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      {loading ?<> <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '4cm', // Use 100% of the viewport height
+    }}>
+      <div>
+        <LoadingSpinner />
+      </div>
+    </div></>: <>
 
       {Array.isArray(restaurants) && restaurants.length > 0 ? (
 
@@ -86,9 +96,9 @@ const LandingPage = () => {
             )}
               <h4 style={{ textAlign: 'justify' }}>{restaurant.name}</h4>
 
-              <p style={{ textAlign: 'justify' }}>
+              <p style={{ textAlign: 'justify',fontFamily:'arial' }}>
                 {restaurant.description}
-                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '1cm', marginTop: '20px', borderRadius: '6px' }}>
+                <p style={{ textAlign: 'center', fontStyle: 'italic', fontPalette: '13px', backgroundColor: '#faead1', padding: '0.3cm', marginTop: '20px', borderRadius: '6px' }}>
                   <BiMap className="" style={{ color: 'black' }} />&nbsp;&nbsp;{restaurant.address} <br />
                   <BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} />&nbsp;&nbsp;{restaurant.email} <br />
                   <BiPhone />&nbsp;&nbsp;{restaurant.phone}
@@ -114,11 +124,6 @@ const LandingPage = () => {
            sorry !!
             </p>
 
-
-        
-
-
-
           </div>
           <div className="col-lg-6 order-1 order-lg-2" style={{ marginTop: 'cm', fontFamily: 'monospace',color:'white' }}>
             <img src="/assets/img/Oops! 404 Error with a broken robot-amico.svg" className="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100" />
@@ -128,7 +133,7 @@ const LandingPage = () => {
     </section>
                   )}
 
-
+</>}
       <Footer />
     </>
   );

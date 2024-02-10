@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import '../../css/main2.css';
 import Menu from "../../components/customerM";
 import Footer from "../../components/footer";
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
+import LoadingSpinner from '../../components/loading'; 
 const LandingPage = () => {
   const { id } = useParams(); 
 
@@ -50,6 +51,17 @@ const LandingPage = () => {
   return (
     <>
       <Menu />
+
+      {loading ?<> <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '6cm', // Use 100% of the viewport height
+    }}>
+      <div>
+        <LoadingSpinner />
+      </div>
+    </div></>: <>
       {Array.isArray(RestaurantCategories) && RestaurantCategories.length > 0 ? (
 
       <section id="team" className="team" style={{marginTop:'1cm'}}>
@@ -103,11 +115,9 @@ const LandingPage = () => {
             </div>
           </section>
                         )}
+                        </>}
 
-      {/* footer */}
       <Footer />
-      {/* footer */}
-
       <script src="assets/js/main.js"></script>
     </>
   );

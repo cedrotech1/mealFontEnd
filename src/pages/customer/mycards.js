@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../css/main2.css';
-
+import LoadingSpinner from '../../components/loading'; 
 import Menu from '../../components/customerM';
 import Footer from '../../components/footer';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi'; // Importing icons from the 'react-icons' library
@@ -86,8 +86,6 @@ const LandingPage = () => {
   }, []);
 
   const handleView = (id) => {
-    // Handle view logic
-    // Example: Navigate to a page with the restaurant ID
     navigate(`../history/${id}`);
   };
   return (
@@ -105,9 +103,7 @@ const LandingPage = () => {
               </p>
             </div>
             <div className="col-lg-6 order-1 order-lg-2">
-              {/* Uncomment and add the appropriate path for your image */}
-                {/* <img src="assets/img/hero-img.svg" className="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100" /> */}
-               
+
             </div>
           </div>
         </div>
@@ -117,7 +113,16 @@ const LandingPage = () => {
   <div className="container" data-aos="fade-up">
     <div className="row gy-4">
       {loading ? (
-        <p>Loading...</p>
+      <> <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '3cm', // Use 100% of the viewport height
+      }}>
+        <div>
+          <LoadingSpinner />
+        </div>
+      </div></>
       ) : (
         Cards.map((card) => (
           <div onClick={() => handleView(card.id)} key={card.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * card.id} style={{ padding: '' }}>

@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi';
 import { Modal, Button } from 'react-bootstrap';
 import { FaInfoCircle } from 'react-icons/fa';
-import LoadingSpinner from './loading'; 
+import LoadingSpinner from './loading';
 
 const LandingPage = () => {
     const [formData, setFormData] = useState({
@@ -55,7 +55,7 @@ const LandingPage = () => {
     };
 
     useEffect(() => {
-        setLoading(true); 
+        setLoading(true);
         const user = localStorage.getItem('user');
         if (user) {
             const parsedUser = JSON.parse(user);
@@ -69,7 +69,7 @@ const LandingPage = () => {
                 address: parsedUser.address || '',
                 image: parsedUser.image || '',
             });
-            setLoading(false); 
+            setLoading(false);
             setID(parsedUser.id);
             setSelectedUser(parsedUser);
             setImage(parsedUser.image)
@@ -106,7 +106,7 @@ const LandingPage = () => {
         e.preventDefault();
 
         try {
-            setLoading(true); 
+            setLoading(true);
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/update/${ID}`, {
                 method: 'PUT',
                 headers: {
@@ -139,7 +139,7 @@ const LandingPage = () => {
         e.preventDefault();
 
         try {
-            setLoading(true); 
+            setLoading(true);
             const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/changePassword`, {
                 method: 'PUT',
                 headers: {
@@ -172,8 +172,8 @@ const LandingPage = () => {
 
 
         try {
-            setLoading(true); 
-            
+            setLoading(true);
+
             const formDataUpload = new FormData();
             formDataUpload.append('image', formDataImage.image);
 
@@ -210,34 +210,36 @@ const LandingPage = () => {
 
     return (
         <>
-            <section id="contact" className="contact" style={{ marginTop: 'cm' }}>
+            {/* {loading ? <LoadingSpinner /> : <> */}
+
+            <section id="contact" className="contact" style={{ marginTop: '-2cm' }}>
                 <div className="container-fluid" data-aos="fade-up">
                     <div className="row gx-lg-0 gy-4">
                         <div className="col-lg-4" style={{ fontFamily: 'cursive' }}>
-                            <div className="info-container d-flex flex-column align-items-center justify-content-center" style={{ backgroundColor: 'white', fontFamily: 'cursive' }}>
+                            <div className="info-container d-flex flex-column align-items-center justify-content-center" style={{ backgroundColor: 'white', fontFamily: 'arial' }}>
                                 <div className="info-itemx d-flex">
                                     <div>
                                         {formData.image && formData.image !== 'null' ? (
-                                            <img src={image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'11cm' }} onClick={handleToggleFileUploadModal} />
+                                            <img src={image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '11cm' }} onClick={handleToggleFileUploadModal} />
 
                                         ) : (
-                                            <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }} onClick={handleToggleFileUploadModal} />
+                                            <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '9cm' }} onClick={handleToggleFileUploadModal} />
 
                                         )}
                                     </div>
-                                    
+
 
                                 </div>
-                            
+
                                 {/* <div className="info-item d-flex" style={{ backgroundColor: 'white', color: 'black' }}> */}
-                                <p style={{ fontFamily: 'cursive', color: 'green', marginTop: '-0.3cm', marginBottom: 'cm', marginRight: '0.2cm', textAlign: 'center' }}>
+                                <p style={{ fontFamily: 'arial', color: 'green', marginTop: '-0.3cm', marginBottom: 'cm', marginRight: '0.2cm', textAlign: 'center' }}>
                                     <FaInfoCircle style={{ color: 'green' }} /> Click to your profile pic to edit !
                                 </p>
                                 {/* </div> */}
 
-                                <div className="info-item d-flex" style={{ backgroundColor: 'whitesmoke', color: 'black' }}>
+                                <div className="info-item " style={{ backgroundColor: 'whitesmoke', color: 'black' }}>
                                     <div>
-                                        <h4 style={{ textAlign: 'center' }}> <center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{formData.firstname} &nbsp;{formData.lastname} </center> </h4>
+                                        <h4 style={{ textAlign: 'center' }}>{formData.firstname} &nbsp;{formData.lastname}  </h4>
                                     </div>
                                 </div>
                                 <div className="info-item d-flex" style={{ backgroundColor: 'whitesmoke', color: 'black' }}>
@@ -301,8 +303,8 @@ const LandingPage = () => {
                                 </div>
                                 <div className="d-flex justify-content-between">
                                     <button type="submit" className="form-control" style={{ borderRadius: '10PX', backgroundColor: 'darkblue' }} disabled={loading}>
-              {loading ? <LoadingSpinner /> : ' Edit profile'}
-            </button>
+                                        {loading ? <LoadingSpinner /> : ' Edit profile'}
+                                    </button>
                                 </div>
                                 <div className="row" style={{ backgroundColor: '' }}>
                                     <div className="col-xl-4 col-md-4" style={{ padding: '0.4cm' }}></div>
@@ -315,7 +317,7 @@ const LandingPage = () => {
                                                 style={{
                                                     backgroundColor: 'whitesmoke',
                                                     borderRadius: '6px',
-                                                    fontFamily: 'cursive',
+                                                    fontFamily: 'arial',
                                                     textDecoration: 'none',
                                                     padding: '0.2cm',
                                                     width: '5cm',
@@ -334,6 +336,8 @@ const LandingPage = () => {
                     </div>
                 </div>
             </section>
+
+            {/* </>} */}
 
             <Modal show={showPasswordModal} onHide={handleClosePasswordModal}>
                 <Modal.Header closeButton>
@@ -356,13 +360,15 @@ const LandingPage = () => {
                             </div>
                             <div className="text-center">
                                 <button type="submit" className="form-control" disabled={loading}>
-              {loading ? <LoadingSpinner /> : ' Edit '}
-            </button>
+                                    {loading ? <LoadingSpinner /> : ' Edit '}
+                                </button>
                             </div>
                         </div>
                     </form>
                 </Modal.Body>
             </Modal>
+
+
             <Modal show={showFileUploadModal} onHide={handleCloseFileUploadModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Profile Picture</Modal.Title>
@@ -381,9 +387,9 @@ const LandingPage = () => {
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="form-control"disabled={loading}>
-              {loading ? <LoadingSpinner /> : ' apload'}
-            </button>
+                                <button type="submit" className="form-control" disabled={loading}>
+                                    {loading ? <LoadingSpinner /> : ' apload'}
+                                </button>
                             </div>
                         </div>
                     </form>

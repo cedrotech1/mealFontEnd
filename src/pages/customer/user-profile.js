@@ -11,7 +11,7 @@ const LandingPage = () => {
   return (
     <>
       <Menu />
-      <div style={{marginTop:'1cm'}}> 
+      <div style={{marginTop:'3.5cm'}}> 
       <div className='row'>
       <div className='col-xl-2 col-md-2'>
         

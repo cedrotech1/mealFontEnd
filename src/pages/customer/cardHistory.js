@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../css/main2.css';
-
+import LoadingSpinner from '../../components/loading'; 
 import Menu from '../../components/customerM';
 import Footer from '../../components/footer';
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi'; // Importing icons from the 'react-icons' library
@@ -62,17 +62,25 @@ const LandingPage = () => {
 
 
 
-  // const per=Cards[0].times/60*100
-
-
   const handleView = (id) => {
-    // Handle view logic
-    // Example: Navigate to a page with the restaurant ID
     navigate(`../history/${id}`);
   };
   return (
     <>
       <Menu />
+
+      {loading ? (
+      <> <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '5cm', // Use 100% of the viewport height
+      }}>
+        <div>
+          <LoadingSpinner />
+        </div>
+      </div></>
+      ) : (<> 
       {Array.isArray(Cards) && Cards.length > 0 ? (
       <section id="hero" className="hero"  style={{marginTop:'2cm'}}>
         <div className="container position-relative">
@@ -88,9 +96,6 @@ const LandingPage = () => {
               </p>
             </div>
             <div className="col-lg-6 order-1 order-lg-2">
-              {/* Uncomment and add the appropriate path for your image */}
-              {/* <img src="assets/img/hero-img.svg" className="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100" /> */}
-
             </div>
           </div>
         </div>
@@ -228,7 +233,7 @@ const LandingPage = () => {
       </section>
                     )}
 
-
+</>)}
       <div style={{ marginTop: '2cm', fontFamily: 'monospace' }}>
         <Footer />
       </div>
