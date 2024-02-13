@@ -51,7 +51,9 @@ const Dashboard = () => {
                           </Button>
                         </div>
                         <Statistics />
+                        <div style={{marginTop:'2cm'}}> 
                         <Profile  />
+                        </div>
                       </div>
                     </div>
                   </section>

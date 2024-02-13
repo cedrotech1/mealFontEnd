@@ -23,6 +23,7 @@ const Dashboard = () => {
   const [Cards, setCards] = useState([]);
   const [Error, setError] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(false);
   const token = localStorage.getItem('token');
   const [EmployeesAdmin, setEmployeesAdmin] = useState([]);
 
@@ -33,9 +34,6 @@ const Dashboard = () => {
     two: 0,
     three: 0,
   });
-
-
-  // ``${process.env.REACT_APP_BASE_URL}/api/v1/categories/one/${id}`,
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -90,7 +88,8 @@ const Dashboard = () => {
     let x = '0';
     if (use) {
       try {
-        console.log(use)
+        setLoading2(true);
+        // console.log(use)
 
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/card/use/${id}`, {
           method: 'PUT',
@@ -108,7 +107,7 @@ const Dashboard = () => {
           const res = await response.json();
           toast.success(res.message);
           await new Promise(resolve => setTimeout(resolve, 3000)); // Adjust the delay time as needed
-
+          setLoading2(false);
           window.location.reload();
         } else {
           const errorData = await response.json();
@@ -201,10 +200,17 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </section>
-                  {loading ? <LoadingSpinner /> : <>
-                  
-
-
+                  {loading ?<> <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '3cm', // Use 100% of the viewport height
+      }}>
+        <div>
+          <LoadingSpinner />
+        </div>
+      </div></>: <>
+                
                   <section id="hero" className="hero" style={{ backgroundColor: 'whitesmoke', padding: '0cm', marginTop: '-0.7cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
@@ -333,9 +339,9 @@ const Dashboard = () => {
                                     </div>
 
                                     <div className="text-center">
-                                      <button type="submit" className="form-control" style={{ marginTop: '0.5cm' }}>
-                                        save
-                                      </button>
+                                      <button type="submit" className={`form-control ${loading ? 'loading' : ''}`} disabled={loading2}>
+                                  {loading2 ? <LoadingSpinner /> : 'Login'}
+                                </button>
                                     </div>
                                   </form>
                                 </div>
