@@ -328,7 +328,7 @@ const Dashboard = () => {
 
                                     <div className="text-center">
                                       <button type="submit" className={`form-control ${loading ? 'loading' : ''}`} disabled={loading2}>
-                                  {loading2 ? <LoadingSpinner /> : 'Login'}
+                                  {loading2 ? <LoadingSpinner /> : 'save'}
                                 </button>
                                     </div>
                                   </form>

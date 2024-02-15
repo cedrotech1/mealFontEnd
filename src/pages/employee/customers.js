@@ -316,7 +316,16 @@ const Dashboard = () => {
 
                           </div>
                           <div className="row gy-4">
-                            {loading ? <LoadingSpinner /> : <>
+                             {loading ?  <div style={{
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              padding: '2cm', // Use 100% of the viewport height
+                            }}>
+                              <div>
+                                <LoadingSpinner />
+                              </div>
+                            </div>: <>
 
 
                               {
@@ -438,7 +447,16 @@ const Dashboard = () => {
                           </div>
                           <div className="row gy-4">
 
-                            {loading ? <LoadingSpinner /> : <>
+                            {loading ? <> <div style={{
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              padding: '2cm', // Use 100% of the viewport height
+                            }}>
+                              <div>
+                                <LoadingSpinner />
+                              </div>
+                            </div></> : <>
 
                               {Cards.length > 0 ? (
                                 Cards.map((category, index) => (
