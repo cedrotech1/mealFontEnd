@@ -306,16 +306,23 @@ const Dashboard = () => {
                   <section id="team" className="team">
   <div className="container" data-aos="fade-up">
     <div className="row gy-4">
-      {loading ? (
-        <LoadingSpinner/>
-      ) : (
+      {loading ? (<> <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '0cm', // Use 100% of the viewport height
+    }}>
+      <div>
+        <LoadingSpinner />
+      </div>
+    </div></> ) : (
         Restaurent.map((restaurant) => (
-          <div onClick={() => handleView(restaurant.id)} key={restaurant.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * restaurant.id} style={{padding:"0.4cm"}}>
+          <div onClick={() => handleView(restaurant.id)} key={restaurant.id} className="col-xl-4 col-md-6 " data-aos="fade-up" data-aos-delay={100 * restaurant.id} style={{padding:"0.2cm",marginTop:"-3cm"}}>
           <Link to="/resto_view">
             <div className="memberx col-xl-12" style={{backgroundColor:'white',padding:'0.5cm'}}>
              
             {restaurant.image!==null ? (
-                                        <img src={restaurant.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }}  />                                  
+                                        <img src={restaurant.image} className="img-fluid" alt="" style={{ marginTop:'1.7cm',borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }}  />                                  
                                         ) : (
                                         <img src='assets/img/images (3).jpeg' className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'9cm' }}  />
                                         )}

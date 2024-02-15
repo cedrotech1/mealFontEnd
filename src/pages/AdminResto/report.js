@@ -174,24 +174,18 @@ const Dashboard = () => {
                             ☰
                           </Button>
                         </div>
-                        {report && (
+                        <section id="team" className="team" style={{ marginTop: '0cm', backgroundColor: 'whitesmoke', padding: '5px',borderRadius:'0.2cm' }}>
+                        <div className="row ">
+                        <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{backgroundColor:'white'}}>
+                                <div className="row">
 
-                          <section id="team" className="team" style={{ marginTop: '0cm', backgroundColor: 'white', padding: '5px',borderRadius:'0.2cm' }}>
+                                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' ,marginLeft:'0'}}>
 
-
-                            <div className="row" style={{padding:'0.3cm',borderRadius:'0.8cm'}}>
-
-
-                              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100">
-                                <div className="row ">
-
-                                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
-
-                                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
+                                   <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'justfy' }}>
                                     <BiFile />
                                     </h1>
                                   </div>
-                                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
+                                  <div className=" col-xl-6  col-md-6" style={{ margin: '0cm' }}>
                                     <h5 style={{ textAlign: 'justify' }}>day report</h5>
 
                                     <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
@@ -225,7 +219,7 @@ const Dashboard = () => {
                                 </div>
 
                               </div>
-                              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" >
+                              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100"  style={{backgroundColor:'white'}} >
                                 <div className="row ">
 
                                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
@@ -268,7 +262,7 @@ const Dashboard = () => {
 
                               </div>
 
-                              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" >
+                              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100"  style={{backgroundColor:'white'}}>
                                 <div className="row ">
 
                                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke' }}>
@@ -317,7 +311,17 @@ const Dashboard = () => {
 
                                 </div>
 
-                              </div>
+                                </div> </div>
+                              </section>
+                        {report && (
+
+                          <section id="team" className="team" style={{ marginTop: '0cm', backgroundColor: 'white', padding: '5px',borderRadius:'0.2cm' }}>
+
+
+                            <div className="row" style={{padding:'0.3cm',borderRadius:'0.8cm'}}>
+
+
+                         
 
 
                               {/* <div className=" col-xl-4 col-md-4" style={{ padding: '0cm' }}>

@@ -235,11 +235,7 @@ const Dashboard = () => {
 
                                 <i className="bi bi-envelope flex-shrink-0" style={{ backgroundColor: '' }}><BiEnvelope className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} /></i>
                                 &nbsp; <span>  {Cards.cardUser.email}</span><br />
-                                <i className="bi bi-envelope flex-shrink-0" style={{ backgroundColor: '' }}><BiMap className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} /></i>
-
-
-                                &nbsp; <span>{Cards.cardUser.address}
-                                </span><br />
+                                {/* <i className="bi bi-envelope flex-shrink-0" style={{ backgroundColor: '' }}><BiMap className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} /></i> */}
                                 <i className="bi bi-envelope flex-shrink-0" style={{ backgroundColor: '' }}><BiPhone className="flex-shrink-0 bi bi-envelope flex-shrink-0" style={{ color: 'black' }} /></i>
 
                                 &nbsp; <span> {Cards.cardUser.phone}</span>
@@ -257,14 +253,6 @@ const Dashboard = () => {
                             <div className="row member">
                               <div className=" col-xl-12  col-md-12" style={{ margin: '0cm' }}>
                                 <div className="">
-                                  {/* {imageSources.map((src, index) => (
-                                    <img key={index} src={src} className="img-fluid" alt="" style={{ height: '1cm', marginRight: '5px', marginBottom: '5px' }} />
-                                  ))}
-
-                                  {imageSources2.map((src, index) => (
-                                    <img key={index} src={src} className="img-fluid" alt="" style={{ height: '0.8cm', marginRight: '2px', marginBottom: '5px' }} />
-                                  ))} */}
-
                                   <section id="team" className="team" style={{ marginTop: '-2cm' }}>
                                     <div className="container" data-aos="fade-up">
                                       <div className="row">
