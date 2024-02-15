@@ -320,7 +320,7 @@ const Dashboard = () => {
                               display: 'flex',
                               justifyContent: 'center',
                               alignItems: 'center',
-                              padding: '2cm', // Use 100% of the viewport height
+                              padding: '1cm', // Use 100% of the viewport height
                             }}>
                               <div>
                                 <LoadingSpinner />
@@ -451,7 +451,7 @@ const Dashboard = () => {
                               display: 'flex',
                               justifyContent: 'center',
                               alignItems: 'center',
-                              padding: '2cm', // Use 100% of the viewport height
+                              padding: '1cm', // Use 100% of the viewport height
                             }}>
                               <div>
                                 <LoadingSpinner />
