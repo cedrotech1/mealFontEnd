@@ -43,7 +43,16 @@ const App = () => {
     }
   }, []);
   if (loading) {
-    return <LoadingSpinner /> ;
+    return <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '4cm', // Use 100% of the viewport height
+    }}>
+      <div>
+        <LoadingSpinner />
+      </div>
+    </div>
   }
 
   if (!user) {

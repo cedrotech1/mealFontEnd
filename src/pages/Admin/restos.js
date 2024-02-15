@@ -12,6 +12,7 @@ import Menu from "../../components/MenuDeskTop";
 import Statistics from "../../components/statistics-component";
 import Menu2 from "../../components/MenuMobile";
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi'; 
+import LoadingSpinner from '../../components/loading'; 
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -154,10 +155,17 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </section>
-
+                  {loading ? (<> <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '0cm', // Use 100% of the viewport height
+    }}>
+      <div>
+        <LoadingSpinner />
+      </div>
+    </div></>):(<>
                   <div className="row" style={{backgroundColor:'whitesmoke'}}>
-
-
                     <div className="col-xl-3 col-md-3" style={{ padding: '0.4cm' }}>
 
                       <input
@@ -194,7 +202,7 @@ const Dashboard = () => {
 
                   {/* Modal component */}
                   {/* Modal component */}
-              
+
 
                   <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-2cm' }}>
   <div className="container" data-aos="fade-up">
@@ -229,7 +237,7 @@ const Dashboard = () => {
     </div>
   </div>
 </section>
-
+</>)}
 
 
 

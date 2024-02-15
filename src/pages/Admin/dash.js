@@ -8,7 +8,7 @@ import { faEye, faEdit, faCheck,faTimes } from '@fortawesome/free-solid-svg-icon
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Statistics from "../../components/statistics-component";
-
+import LoadingSpinner from '../../components/loading'; 
 import Menu from "../../components/MenuDeskTop";
 import Menu2 from "../../components/MenuMobile";
 
@@ -249,7 +249,16 @@ const renderActivationButton = (userId, userStatus) => {
 
                   {/* Modal component */}
                 
-
+                  {loading ? (<> <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '0cm', // Use 100% of the viewport height
+    }}>
+      <div>
+        <LoadingSpinner />
+      </div>
+    </div></> ) : (
                   <section id="team" className="team" style={{ marginTop: '-2cm' }}>
   <div className="container" data-aos="fade-up">
     <div className="row">
@@ -303,6 +312,7 @@ const renderActivationButton = (userId, userStatus) => {
     </div>
   </div>
 </section>
+)}
 
                 </div>
               </div>
