@@ -57,6 +57,11 @@ label {
   margin-bottom: 10px;
   margin-right: 20px;
 }
+.allcards{
+  text-align: justify;
+}
+
+
 
 @media screen and (min-width: 680px) {
   .checkbox-container {
@@ -66,6 +71,7 @@ label {
   .hero .welcame{
     margin-top: 3cm;
   }
+
 }
 
 #herofm {
@@ -192,7 +198,7 @@ table .awasome{
   font-family: monospace;
   text-decoration: none;
   padding: 0.2cm;
-  width: 4cm;
+  width: 5.5cm;
   margin-top: 1.5cm;
   color: black;
   height: auto;
@@ -239,6 +245,10 @@ table .awasome{
 .btn-watch-video{
 text-decoration: none;
 }
+.desktop{
+  /* padding-left: 0.2cm; */
+  padding: 0.2cm;
+}
 
 .footerx{
   background-color:rgb(236, 236, 236);
@@ -257,25 +267,61 @@ color: rgb(0, 0, 0);
 align-items: center;
 /* padding: 1cm; */
 }
+.statistic-info{
+  padding-top: 0.2cm;
+  text-align: 'justify';
+  font-family: sans-serif;
+}
+.statistic-info h5{
+ font-size: 23px;
+ margin-bottom: -4px;
+ font-style: bold;
+ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
 
 
 @media (min-width: 992px) {
-  .bx{
+    .bx{
+      display: none;
+    }
+    .text-lg-left {
+        text-align: left !important; /* Use !important only if necessary */
+        /* background-color: #000; */
+    }
+    .text-lg-left .help {
+      margin-left: 1cm;
+  }
+  .text-lg-left .help2 {
+    margin-left: 0.8cm;
+  }
+  .text-lg-left .help3 {
+    margin-left: 0.5cm;
+  }
+
+}
+
+@media (max-width: 780px) {
+  .allcards{
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 0.1cm;
+  }
+  .cardimage{
+    /* align-items: center; */
+    margin-left: 0.5cm;
+
+  }
+  .loginImg{
     display: none;
   }
-  .text-lg-left {
-      text-align: left !important; /* Use !important only if necessary */
-      /* background-color: #000; */
+  .loginForm{
+    margin-top: -2cm;
   }
-  .text-lg-left .help {
-    margin-left: 1cm;
-}
-.text-lg-left .help2 {
-  margin-left: 0.8cm;
-}
-.text-lg-left .help3 {
-  margin-left: 0.5cm;
-}
+  span{
+   text-align: justify;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
 }
 body {
   font-family: var(--font-default);

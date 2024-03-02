@@ -143,15 +143,14 @@ const Dashboard = () => {
           <LoadingSpinner />
         </div>
       </div></> : <>
-                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-2.5cm' }}>
+                  <section id="team" className="team" style={{ backgroundColor: 'whitesmoke',marginTop:'-1.5cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
-                        <div className="col-lg-5 order-1 order-lg-1  flex-column justify-content-center text-center text-lg-start" style={{ marginTop: '0cm', fontFamily: 'monospace' }}>
+                        <div className="col-lg-5 order-1 order-lg-1  flex-column justify-content-center text-center text-lg-start" style={{ marginTop: '0.5cm', fontFamily: 'monospace' }}>
                           <div className="row gy-4">
                             {Customer.map((Employee) => (
                               <div key={Employee.id} className="col-xl-12 col-md-12" data-aos="fade-up" data-aos-delay={100 * Employee.id} style={{ padding: '' }}>
                                 <div className="member col-xl-12" style={{padding:'0.3cm' }}>
-                                  {/* <img src='/assets/img/images (3).jpeg' className="img-fluid" alt="" style={{ height: 'auto', padding: '0px', width: '100%', borderRadius: '7px' }} /> */}
                                   {Employee.image && Employee.image !== 'null' ? (
                                             <img src={Employee.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm',width:'11cm' }} />
 
@@ -173,16 +172,16 @@ const Dashboard = () => {
 
                   
 
-                        <div className="col-lg-7 order-1 order-lg-2" style={{ marginTop: '-0.5cm', fontFamily: 'monospace', color: 'white' }}>
+                        <div className="col-lg-7 order-1 order-lg-2" style={{ marginTop: '0cm', fontFamily: 'monospace', color: 'white' }}>
                           {Array.isArray(Cards) && Cards.length > 0 ? (
                             Cards.map((card, index) => (
                               <div onClick={() => handleView(card.id)} className="row member" style={{ marginTop: '0.5cm' }} key={card.id}>
                                 <div className="col-xl-5 col-md-5 d-flex">
-                                  <img src='/assets/img/card.png' className="img-fluid" alt="" />
+                                  <img src='/assets/img/card.png' className="img-fluid cardimage" alt="" />
                                 </div>
-                                <div className="col-xl-7 col-md-7" style={{ paddingTop: '0cm' }}>
-                                  <h4 style={{ color: 'black', textAlign: 'left' }}>MEAL CARD {index + 1}</h4>
-                                  <p style={{ marginLeft: 'cm', textAlign: 'justify' }}>
+                                <div className="col-xl-7 col-md-7 allcards" style={{ paddingTop: '0cm' }}>
+                                  <h4 style={{ color: 'black', textAlign: '' }}>MEAL CARD {index + 1}</h4>
+                                  <p style={{ marginLeft: 'cm', textAlign: '' }}>
                                     {card.cardUser && (
                                       <div>
                                         <strong>User:</strong> {card.cardUser.firstname} {card.cardUser.lastname} <br />

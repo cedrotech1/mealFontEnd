@@ -273,6 +273,7 @@ const renderActivationButton = (userId, userStatus) => {
                 <thead>
                   <tr style={{ backgroundColor: '', marginTop: '0cm' }}>
                     <th scope="col" style={{  backgroundColor: 'whitesmoke', marginTop: '0cm',borderTopLeftRadius:'10px' }} >#</th>
+                    <th scope="col" style={{  backgroundColor: 'whitesmoke', marginTop: '0cm' }}>image</th>
                     <th scope="col" style={{  backgroundColor: 'whitesmoke', marginTop: '0cm' }}>Names</th>
                     <th scope="col" style={{  backgroundColor: 'whitesmoke', marginTop: '0cm' }}>Email</th>
                     <th scope="col" style={{  backgroundColor: 'whitesmoke', marginTop: '0cm' }}>Phone</th>
@@ -284,17 +285,27 @@ const renderActivationButton = (userId, userStatus) => {
                   {restaurantsAdmin.map((user, index) => (
                     <tr key={user.id}>
                       <th scope="row">{index + 1}</th>
+                      <td>
+                      {user.image && user.image !== 'null' ? (
+                                            <img src={user.image} className="img-fluid" alt="" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '11cm' }}  />
+
+                                        ) : (
+                                            <img src="/assets/img/images (3).png" className="img-fluid" alt="Default Image" style={{ borderRadius: '10px', marginBottom: '0.5cm', width: '9cm' }}/>
+
+                                        )}
+                        
+                        </td>
                       <td>{user.firstname} {user.lastname}</td>
                       <td>{user.email}</td>
                       <td>{user.phone}</td>
                       <td>{user.status}</td>
                       <td>
-                        <button onClick={() => handleView(user.id)} style={{ backgroundColor: 'white', border: '0px' }}>
+                        {/* <button onClick={() => handleView(user.id)} style={{ backgroundColor: 'white', border: '0px' }}>
                           <FontAwesomeIcon icon={faEye} />
                         </button>
                         <button onClick={() => handleModify(user.id)} style={{ backgroundColor: 'white', border: '0px' }}>
                           <FontAwesomeIcon icon={faEdit} />
-                        </button>
+                        </button> */}
                         {renderActivationButton(user.id, user.status)}
                       </td>
                     </tr>

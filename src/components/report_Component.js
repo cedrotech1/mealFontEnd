@@ -79,10 +79,10 @@ const App = () => {
                       {report.admin.users}
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>users</h5>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>users</h5>
 
-                    <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                    <p>
                       number of users in our system
 
                     </p>
@@ -104,12 +104,10 @@ const App = () => {
                       {report.admin.restaurants}
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>restaurents</h5>
-
-                    <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>restaurents</h5>
+                    <p>
                       number of users in our system
-
                     </p>
                     <div className="d-flex justify-content-center justify-content-lg-start">
                     </div>
@@ -125,9 +123,9 @@ const App = () => {
                       {report.resto.actives}
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>Active Employees</h5>
-                    <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>Active Employees</h5>
+                    <p>
                       we have only
                       &nbsp;{report.resto.actives}
                       &nbsp; active

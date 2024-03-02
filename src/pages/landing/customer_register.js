@@ -82,7 +82,7 @@ const LandingPage = () => {
             <div className="col-lg-1 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start"></div>
 
             <div
-              className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start"
+              className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center  text-lg-start"
               style={{ boxShadow: '', padding: '0.3cm' }}
             >
               <form onSubmit={handleSubmit} className="myform">
@@ -137,7 +137,7 @@ const LandingPage = () => {
             <div className="col-lg-5 order-1 order-lg-2 d-flex align-items-center justify-content-center">
               <img
                 src="assets/img/Interaction Design-bro.svg"
-                className="img-fluid"
+                className="img-fluid loginImg"
                 alt=""
                 data-aos="zoom-out"
                 data-aos-delay="100"

@@ -463,12 +463,12 @@ const Dashboard = () => {
                                   <div key={index} className="col-xl-6 col-md-6" data-aos="fade-up" data-aos-delay={100 * (index + 1)}>
                                     <div className="member" style={{ padding: '0.3cm' }}>
                                       <img src='/assets/img/images (4).jpeg' className="img-fluid" alt="" style={{ height: 'auto', width: '100%', borderRadius: '7px' }} />
-                                      <h4 style={{ textAlign: 'center', fontFamily: 'cursive', textTransform: 'uppercase' }}>{category.name}</h4>
+                                      <h4 style={{ textAlign: 'center', fontFamily: 'monospace', textTransform: 'uppercase' }}>{category.name}</h4>
                                       {/* <p style={{ textAlign: 'center', fontFamily: 'cursive', marginLeft: '0cm' }}>{category.description}</p> */}
-                                      <p style={{ fontFamily: 'cursive', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
+                                      <p style={{ fontFamily: 'monospace', marginTop: '-0.5cm', textAlign: 'center', fontSize: '20px' }}>
                                         Price: {category.price}
                                       </p>
-                                      <p style={{ fontFamily: 'cursive', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
+                                      <p style={{ fontFamily: 'monospace', marginTop: '-0.6cm', textAlign: 'center', fontSize: '16px' }}>
                                         <i> status: {category.status}</i>
                                       </p>
 

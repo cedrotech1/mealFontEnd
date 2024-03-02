@@ -33,7 +33,7 @@ const App = () => {
     };
 
     fetchStatistics();
-  }, [token]); 
+  }, [token]);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -61,7 +61,7 @@ const App = () => {
   }
 
   const { role } = user;
-console.log(user.restaurents)
+  console.log(user.restaurents)
   return (
     <div>
       {/* Other components */}
@@ -69,102 +69,21 @@ console.log(user.restaurents)
         <>
           {statistics && (
 
-<div className="row">
-          
-           <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                   <div className="row member" style={{padding:'0.2cm'}}>
+            <div className="row">
 
-                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
+              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
+                <div className="row member" style={{ padding: '0.2cm' }}>
+
+                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke', borderRadius: '3px' }}>
 
                     <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
                       {statistics.admin.users}
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>users</h5>
-
-                    <p style={{textAlign: 'justify',fontFamily:'sans-serif' }}>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>users</h5>
+                    <p>
                       number of users in our system
-
-                    </p>
-                    <div className="d-flex justify-content-center justify-content-lg-start">
-                    </div>
-                  </div>
-
-                </div>
-
-                </div> 
-                
-                
-                <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                   <div className="row member" style={{padding:'0.2cm'}}>
-
-                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
-
-                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
-                      {statistics.admin.restaurants}
-                    </h1>
-                  </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>restaurents</h5>
-
-                    <p style={{textAlign: 'justify',fontFamily:'sans-serif' }}>
-                      number of users in our system
-
-                    </p>
-                    <div className="d-flex justify-content-center justify-content-lg-start">
-                    </div>
-                  </div>
-
-                </div>
-
-                </div> 
-                
-
-                <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                   <div className="row member" style={{padding:'0.2cm'}}>
-
-                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
-
-                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
-                      {/* {statistics.admin.users} */}
-                      ..
-                    </h1>
-                  </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>.......</h5>
-
-                    <p style={{textAlign: 'justify',fontFamily:'sans-serif' }}>
-                      number of .... in our system
-
-                    </p>
-                    <div className="d-flex justify-content-center justify-content-lg-start">
-                    </div>
-                  </div>
-                </div>
-                </div>          
-                 </div>
-
-            
-          )}
-        </>
-      )}
-
-      {role === 'restaurentadmin' && (
-        <>
-          {statistics && user.restaurents !== null && (
-            <div className="row">
-              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                   <div className="row member" style={{padding:'0.2cm'}}>
-                   <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
-                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
-                      {statistics.resto.employees}
-                    </h1>
-                  </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>Employees</h5>
-                    <p style={{textAlign: 'justify',fontFamily:'sans-serif' }}>
-                      number of imployees in our restourent
                     </p>
                     <div className="d-flex justify-content-center justify-content-lg-start">
                     </div>
@@ -174,76 +93,127 @@ console.log(user.restaurents)
 
               </div>
 
+
               <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                             <div className="row member" style={{padding:'0.2cm'}}>
+                <div className="row member" style={{ padding: '0.2cm' }}>
 
-                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
+                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke', borderRadius: '3px' }}>
 
-                            <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
-                              {statistics.resto.categories}
-                              </h1>
-                            </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify' }}>Categories</h5>
+                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
+                      {statistics.admin.restaurants}
+                    </h1>
+                  </div>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>restaurents</h5>
 
-                              <p style={{ textAlign: 'justify',fontFamily:'sans-serif' }}>
-                                we have only
-                                &nbsp;{statistics.resto.categories} 
-                                 &nbsp; in our restourent
+                    <p>
+                      number of users in our system
 
-                              </p>
-                              <div className="d-flex justify-content-center justify-content-lg-start">
-                              </div>
-                            </div>
+                    </p>
+                    <div className="d-flex justify-content-center justify-content-lg-start">
+                    </div>
+                  </div>
 
-                          </div>
+                </div>
 
-                        </div>
+              </div>
 
 
+              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
+                <div className="row member" style={{ padding: '0.2cm' }}>
+
+                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke', borderRadius: '3px' }}>
+
+                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
+                      ..
+                    </h1>
+                  </div>
+                  <div className=" col-xl-7  col-md-6 statistic-info" style={{ margin: '0cm' }}>
+                    <h5>.......</h5>
+                    <p>
+                      number of .... in our system
+                    </p>
+                    <div className="d-flex justify-content-center justify-content-lg-start">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-                        <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
-                             <div className="row member" style={{padding:'0.2cm'}}>
+          )}
+        </>
+      )}
 
-                             <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke',borderRadius:'3px' }}>
+      {role === 'restaurentadmin' && (
+        <>
+          {statistics && user.restaurents !== null && (
+            <div className="row">
+              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
+                <div className="row member" style={{ padding: '0.2cm' }}>
+                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke', borderRadius: '3px' }}>
+                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive', textAlign: 'center' }}>
+                      {statistics.resto.employees}
+                    </h1>
+                  </div>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>Employees</h5>
+                    <p>
+                      number of imployees in our restourent
+                    </p>
+                    <div className="d-flex justify-content-center justify-content-lg-start">
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                            <h1 style={{ fontSize: '73px',fontFamily:'cursive' }}>
-                              {statistics.resto.cards}
-                              </h1>
-                            </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify',fontFamily:'sans-serif' }}>cards</h5>
+              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
+                <div className="row member" style={{ padding: '0.2cm' }}>
+                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke', borderRadius: '3px' }}>
+                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive' }}>
+                      {statistics.resto.categories}
+                    </h1>
+                  </div>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>Categories</h5>
+                    <p>
+                      we have only
+                      &nbsp;{statistics.resto.categories}
+                      &nbsp; in our restourent
+                    </p>
+                    <div className="d-flex justify-content-center justify-content-lg-start">
+                    </div>
+                  </div>
+                </div>
 
-                              <p style={{textAlign: 'justify',fontFamily:'sans-serif' }}>
-                                we have only
-                                &nbsp;{statistics.resto.cards} 
-                                 &nbsp; cards in our restaurant
-
-                              </p>
-                              <div className="d-flex justify-content-center justify-content-lg-start">
-                              </div>
-                            </div>
-
-                          </div>
-
-                        </div>
-
-
+              </div>
 
 
 
 
+              <div className="col-xl-4" data-aos="fade-up" data-aos-delay="100" style={{ paddingLeft: '0.7cm', marginTop: '0.5cm' }}>
+                <div className="row member" style={{ padding: '0.2cm' }}>
 
+                  <div className=" col-xl-4 col-md-6" style={{ backgroundColor: 'whitesmoke', borderRadius: '3px' }}>
 
+                    <h1 style={{ fontSize: '73px', fontFamily: 'cursive' }}>
+                      {statistics.resto.cards}
+                    </h1>
+                  </div>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>cards</h5>
+                    <p>
+                      we have only
+                      &nbsp;{statistics.resto.cards}
+                      &nbsp; cards in our restaurant
+                    </p>
+                    <div className="d-flex justify-content-center justify-content-lg-start">
+                    </div>
+                  </div>
 
+                </div>
 
-
-
-
-
-
-
+              </div>
             </div>
           )}
         </>

@@ -88,7 +88,9 @@ const LandingPage = () => {
                   <div className="error-message"></div>
                   <div className="sent-message">Your message has been sent. Thank you!</div>
                 </div>
-                <div className="text-center"><button type="submit">Send Message</button></div>
+                <div className="text-center">
+                  <button type="submit" style={{padding:'0.2',width:'100%',borderRadius:'0.3CM',backgroundColor:'whitesmoke',color:'gray'}}>Send Message</button>
+                  </div>
               </form>
             </div>
 

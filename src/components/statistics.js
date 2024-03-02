@@ -76,12 +76,10 @@ const App = () => {
                       {statistics.admin.users}
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>users</h5>
-
-                    <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>users</h5>
+                    <p>
                       number of users in our system
-
                     </p>
                     <div className="d-flex justify-content-center justify-content-lg-start">
                     </div>
@@ -101,10 +99,10 @@ const App = () => {
                       {statistics.admin.restaurants}
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>restaurents</h5>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>restaurents</h5>
 
-                    <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                    <p>
                       number of users in our system
 
                     </p>
@@ -129,9 +127,9 @@ const App = () => {
                               {statistics.resto.actives}
                               </h1>
                             </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify' }}>Active Employees</h5>
-                              <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                            <div className=" col-xl-7  col-md-6 statistic-info">
+                              <h5>Active Employees</h5>
+                              <p>
                                 we have only
                                 &nbsp;{statistics.resto.actives} 
                                  &nbsp; active 
@@ -152,9 +150,9 @@ const App = () => {
                               {statistics.resto.disactives}
                               </h1>
                             </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify' }}>Disactiveted Employees</h5>
-                              <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                            <div className=" col-xl-7  col-md-6 statistic-info">
+                              <h5>Disactiveted Employees</h5>
+                              <p>
                                 we have only
                                 &nbsp;{statistics.resto.disactives} 
                                  &nbsp; disactive
@@ -177,10 +175,10 @@ const App = () => {
                       ..
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>.......</h5>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>.......</h5>
 
-                    <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                    <p>
                       number of .... in our system
 
                     </p>
@@ -220,9 +218,9 @@ const App = () => {
                       {statistics.resto.employees}
                     </h1>
                   </div>
-                  <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                    <h5 style={{ textAlign: 'justify' }}>Employees</h5>
-                    <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                  <div className=" col-xl-7  col-md-6 statistic-info">
+                    <h5>Employees</h5>
+                    <p>
                       number of imployees in our restourent
                     </p>
                     <div className="d-flex justify-content-center justify-content-lg-start">
@@ -239,10 +237,10 @@ const App = () => {
                               {statistics.resto.categories}
                               </h1>
                             </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify' }}>Categories</h5>
+                            <div className=" col-xl-7  col-md-6 statistic-info">
+                              <h5>Categories</h5>
 
-                              <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                              <p>
                                 we have only
                                 &nbsp;{statistics.resto.categories} 
                                  &nbsp; in our restourent
@@ -263,9 +261,9 @@ const App = () => {
                               {statistics.resto.cards}
                               </h1>
                             </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify' }}>cards</h5>
-                              <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                            <div className=" col-xl-7  col-md-6 statistic-info">
+                              <h5>cards</h5>
+                              <p>
                                 we have only
                                 &nbsp;{statistics.resto.cards} 
                                  &nbsp; cards
@@ -285,9 +283,9 @@ const App = () => {
                               {statistics.resto.actives}
                               </h1>
                             </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify' }}>Active Employees</h5>
-                              <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                            <div className=" col-xl-7  col-md-6 statistic-info">
+                              <h5>Active Employees</h5>
+                              <p>
                                 we have only
                                 &nbsp;{statistics.resto.actives} 
                                  &nbsp; active 
@@ -308,9 +306,9 @@ const App = () => {
                               {statistics.resto.disactives}
                               </h1>
                             </div>
-                            <div className=" col-xl-7  col-md-6" style={{ margin: '0cm' }}>
-                              <h5 style={{ textAlign: 'justify' }}>Disactiveted Employees</h5>
-                              <p style={{ textAlign: 'justify', fontFamily: 'sans-serif' }}>
+                            <div className=" col-xl-7  col-md-6 statistic-info">
+                              <h5>Disactiveted Employees</h5>
+                              <p>
                                 we have only
                                 &nbsp;{statistics.resto.disactives} 
                                  &nbsp; disactive

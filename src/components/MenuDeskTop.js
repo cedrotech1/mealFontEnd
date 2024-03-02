@@ -55,7 +55,7 @@ const LandingPage = () => {
 
   const superadmin = [
     { name: 'Dashboard', icon: <BsHouseDoor />, to: '/admin_statistics' },
-    { name: ' Restaurents', icon: <BsHouseDoor />, to: '/admin_restourent' },
+    { name: ' Restaurent', icon: <BsHouseDoor />, to: '/admin_restourent' },
     { name: ' Admins', icon: <BiUser />, to: '/admin_dash' },
     { name: 'Settings', icon: <BiCog />, to: '/settings' },
   ];
@@ -108,9 +108,9 @@ const LandingPage = () => {
       </div>
         <>
           <center>
-            <Nav className="flex-column">
+            <Nav className="flex-row">
               {getMenu().map((menuItem, index) => (
-                <Link key={index} to={menuItem.to} className="nav-link" style={{textTransform:'Capitalize',fontFamily:'monospace',fontStyle:'italic',textAlign:'center'}}>
+                <Link key={index} to={menuItem.to} className="nav-link" style={{textTransform:'Capitalize',fontFamily:'monospace',fontStyle:'italic',textAlign:''}}>
                   {menuItem.icon} {menuItem.name}
                 </Link>
               ))}

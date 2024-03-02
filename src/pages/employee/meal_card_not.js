@@ -194,9 +194,6 @@ const Dashboard = () => {
                             ☰
                           </Button>
                         </div>
-
-
-
                       </div>
                     </div>
                   </section>
@@ -214,9 +211,7 @@ const Dashboard = () => {
                   <section id="hero" className="hero" style={{ backgroundColor: 'whitesmoke', padding: '0cm', marginTop: '-0.7cm' }}>
                     <div className="container position-relative">
                       <div className="row gy-5" data-aos="fade-in">
-                        <div className="col-lg-5 order-1 order-lg-1 flex-column justify-content-center text-center text-lg-start" style={{ backgroundColor: '', padding: '0.7cm', marginTop: '0.5cm', borderRadius: '10px' }}>
-
-
+                        <div className="col-lg-5 order-1 order-lg-1 flex-column justify-content-center text-center text-lg-start" style={{ backgroundColor: '', padding: '0.7cm', marginTop: '0.5cm', borderRadius: '4px' }}>
                           <div className="col-xl-12 col-md-12" data-aos="fade-up" data-aos-delay="200" style={{ backgroundColor: 'white', paddingTop: '0.5cm', padding: '0.3cm', borderRadius: '20px' }} >
                             {Cards.cardUser && (<div className="member" style={{ padding: '0.3cm' }}>
                               {Cards.cardUser.image && Cards.cardUser.image !== 'null' ? (
